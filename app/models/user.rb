@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :gardens
   has_many :bookings
   validates :first_name, :last_name, presence: true, length: { in: 2..20 }, format: { with: /\A[a-zA-Z]+\z/}, uniqueness: true
+
+  has_many :gardens
 end
