@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :first_name, :last_name, presence: true, length: { in: 2..20 }, format: { with: /\A[a-zA-Z]+\z/}, uniqueness: true
+
+  has_many :gardens
 end
