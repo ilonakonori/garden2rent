@@ -3,4 +3,5 @@ class Garden < ApplicationRecord
   validates :title, :location, :description, :price, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 0 }
   has_many_attached :photos
+  has_many :bookings, dependent: :destroy
 end
