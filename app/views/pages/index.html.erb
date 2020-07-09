@@ -1,0 +1,23 @@
+<tbody>
+  <% @garden.each do |garden| %>
+    <tr>
+      <td><%= garden.name %></td>
+      <td><%= garden.user.email %></td>
+      <td><%= link_to 'Show', garden %></td>
+      <td>
+        <% if policy(garden).edit? %>
+          <%= link_to 'Edit', edit_garden_path(garden) %>
+        <% end %>
+      </td>
+      <td>
+        <% if policy(garden).destroy? %>
+          <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm 'Are you sure?' } %></td>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+
+<% if policy(Garden).new? %>
+  <%= link_to 'New Garden', new_garden_path %>
+<% end %>

@@ -1,7 +1,9 @@
 class GardensController < ApplicationController
-  before_action: set_garden, only [:show, edit, destroy]
+  before_action :set_garden, only [:show, :edit, :destroy]
+
   def index
     @gardens = Garden.all
+    @garden = policy_scope(Garden).order(created_at :asc) # Iva will follow up
   end
 
   def show
@@ -9,10 +11,13 @@ class GardensController < ApplicationController
 
   def new
     @garden = Garden.new
+    authorize @garden
   end
 
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
+    authorize @garden
 
     if @garden.save
       redirect_to @gardens
@@ -32,10 +37,11 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    @garden = params.require(:garden(:name, user_id))
+    params.require(:garden).permit(:title, :description, :location, :price, photos: [])
   end
 
   def set_garden
     @garden = Garden.find(params[:id])
+    authorize @garden
   end
 end

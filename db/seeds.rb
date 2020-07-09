@@ -5,3 +5,62 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require "open-uri"
+
+addresses = [
+"Kollwitzstraße 25 Berlin",
+"Charlottenstraße 2 Berlin",
+"Prenzlauer Allee 165 Berlin",
+"Yorckstraße 55 Berlin",
+"Columbiadamm 23 Berlin",
+"Am Treptower Park 37 Berlin",
+"Grünberger Straße 22 Berlin",
+"Kielblockstraße 1 Berlin",
+"Oberseestraße 2 Berlin",
+"Gleimstraße 20 Berlin" ]
+
+counter = 1
+user_count = 1
+
+
+Garden.destroy_all
+User.destroy_all
+puts "user + gardens destroyed"
+
+
+puts "starting seed"
+
+10.times do
+  new_user = User.create(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: "garden2rent+#{user_count}@gmail.com",
+    password: "garden2rent")
+  puts "added user"
+  1.times do
+    new_garden = Garden.new(
+      title: "Wonderful quite garden, nice neighbors, w pool",
+      description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
+      price: Faker::Number.number(digits: 2),
+      location: addresses.shuffle.sample)
+    puts "new garden not saved yet"
+    1.times do
+      image = URI.open('https://source.unsplash.com/1600x900/?garden')
+      new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
+      counter += 1
+      image = URI.open('https://loremflickr.com/320/240/garden')
+      new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
+      counter += 1
+      image = URI.open('https://source.unsplash.com/900x600/?garden')
+      new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
+      counter += 1
+    end
+    new_garden.user = new_user
+    new_garden.save!
+    counter = 0
+    puts "added 3 images"
+  end
+  user_count += 1
+end
+
+puts "done"
