@@ -1,6 +1,6 @@
 class GardensController < ApplicationController
   before_action :set_garden, only [:show, :edit, :destroy]
-  
+
   def index
     @gardens = Garden.all
     @garden = policy_scope(Garden).order(created_at :asc)
@@ -37,7 +37,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    @garden = params.require(:garden).permit(:name, user_id)
+    @garden = params.require(:garden).permit(:name, user_id, photos: [])
   end
 
   def set_garden
