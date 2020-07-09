@@ -3,7 +3,7 @@ class GardensController < ApplicationController
 
   def index
     @gardens = Garden.all
-    @garden = policy_scope(Garden).order(created_at :asc)
+    @garden = policy_scope(Garden).order(created_at :asc) # Iva will follow up
   end
 
   def show
@@ -37,7 +37,7 @@ class GardensController < ApplicationController
   private
 
   def garden_params
-    @garden = params.require(:garden).permit(:name, user_id, photos: [])
+    params.require(:garden).permit(:title, :description, :location, :price, photos: [])
   end
 
   def set_garden

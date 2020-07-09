@@ -5,9 +5,9 @@ class GardenPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
-  
+
   def create?
-    return true
+    true
   end
 
   def update?
@@ -24,4 +24,3 @@ class GardenPolicy < ApplicationPolicy
     record.user == user
   end
 end
-
