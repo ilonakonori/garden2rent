@@ -1,9 +1,8 @@
 class GardensController < ApplicationController
-  before_action :set_garden, only [:show, :edit, :destroy]
+  before_action :set_garden, only: [:show, :edit, :destroy]
 
   def index
-    @gardens = Garden.all
-    @garden = policy_scope(Garden).order(created_at :asc) # Iva will follow up
+    @gardens = policy_scope(Garden).order(created_at: :desc) # Iva will follow up
   end
 
   def show

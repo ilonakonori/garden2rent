@@ -17,4 +17,9 @@ class Booking < ApplicationRecord
       errors.add(:start_date, "can't be greater than end date")
     end
   end
+
+  def total
+    days = (end_date - start_date)*(60*60*24*1000*1000)
+    days.floor * price
+  end
 end
