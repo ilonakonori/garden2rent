@@ -45,13 +45,13 @@ puts "starting seed"
       location: addresses.shuffle.sample)
     puts "new garden not saved yet"
     1.times do
-      image = URI.open('https://source.unsplash.com/1600x900/?garden')
+      image = URI.open('https://images.unsplash.com/photo-1562182384-08115de5ee97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80')
       new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
       counter += 1
-      image = URI.open('https://loremflickr.com/320/240/garden')
+      image = URI.open('https://images.unsplash.com/photo-1566196614941-3a70657abf60?ixlib=rb-1.2.1&auto=format&fit=crop&w=1336&q=80')
       new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
       counter += 1
-      image = URI.open('https://source.unsplash.com/900x600/?garden')
+      image = URI.open('https://images.unsplash.com/photo-1557429287-b2e26467fc2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80')
       new_garden.photos.attach(io: image, filename: "#{new_garden.location}_#{counter}", content_type: 'image/png')
       counter += 1
     end
