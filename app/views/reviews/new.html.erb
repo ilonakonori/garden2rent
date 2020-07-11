@@ -1,0 +1,10 @@
+<h1>Leave a review</h1>
+
+<%= cl_image_tag @booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+<h3><%= @booking.garden.title %></h3>
+<p><%= "Start Date: #{@booking.start_date} - End Date: #{@review.booking.end_date}" %></h3>
+
+
+<%= render 'form', review: @review, booking: @booking %>
+
+<%= link_to 'Back', bookings_path %>
