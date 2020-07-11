@@ -1,0 +1,4 @@
+<% @gardens.each do |garden| %>
+<h3><%= link_to garden.title, garden_path(garden) %></h3>
+<%= cl_image_tag garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+<% end %>

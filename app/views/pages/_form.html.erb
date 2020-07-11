@@ -1,0 +1,12 @@
+<%= simple_form_for(@garden) do |f| %>
+  <%= f.error_modification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+  </div>
+
+  <div class="form-action">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+ 
