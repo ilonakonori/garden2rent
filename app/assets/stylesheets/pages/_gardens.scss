@@ -1,0 +1,19 @@
+.garden_card {
+  background: white;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  margin-bottom: 20px;
+  margin-top: 20px;
+  flex: 1 0 28%;
+}
+
+.garden_class_title {
+  font-size: 18px;
+  color: black;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
