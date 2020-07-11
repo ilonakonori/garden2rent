@@ -3,7 +3,14 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = policy_scope(Garden).order(created_at: :desc) # Iva will follow up - done!
+    @gardens = policy_scope(Garden).order(created_at: :desc)
+
+    @markers = @gardens.map do |garden|
+      {
+        lat: garden.latitude,
+        lng: garden.longitude
+      }
+    end # Iva will follow up - done!
   end
 
   def show
