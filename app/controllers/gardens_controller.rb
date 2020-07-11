@@ -25,9 +25,9 @@ class GardensController < ApplicationController
     @garden = current_user.gardens.new(garden_params)
     authorize @garden
     if @garden.save
-      redirect_to gardens_path(@garden)
+      redirect_to gardens_path
     else
-      render :edit
+      render :new
     end
   end
 
