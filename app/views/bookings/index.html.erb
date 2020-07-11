@@ -4,13 +4,13 @@
   <% @bookings.each do |booking| %>
     <div class="d-flex">
       <div>
-        <%= cl_image_tag @review.booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+        <%= cl_image_tag booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
         <h3><%= booking.garden.title %></h3>
         <p><%= booking.start_date %></p>
         <p><%= booking.end_date %></p>
       </div>
       <div>
-        <% if @booking.review.empty? %>
+        <% if booking.review.empty? %>
           <%= link_to 'Leave a review', new_booking_review_path %>
         <% else %>
           <p>you already wrote a review</p>
