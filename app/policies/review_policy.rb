@@ -5,13 +5,17 @@ class ReviewPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user_is_booker?
+  end
+
   def create?
-    user_is_owner?
+    user_is_booker?
   end
 
   private
 
-  def user_is_owner?
-    record.user == user
+  def user_is_booker?
+    record.booking.user == user
   end
 end

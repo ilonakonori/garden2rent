@@ -10,8 +10,8 @@
         <p><%= booking.end_date %></p>
       </div>
       <div>
-        <% if booking.review.empty? %>
-          <%= link_to 'Leave a review', new_booking_review_path %>
+        <% if booking.review.nil? %>
+          <%= link_to 'Leave a review', new_booking_review_path(booking) %>
         <% else %>
           <p>you already wrote a review</p>
         <% end %>
