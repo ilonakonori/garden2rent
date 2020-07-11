@@ -1,2 +1,12 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= link_to "Sign up", new_user_registration_path %>
+<%= link_to "Log in", new_user_session_path %>
+<div class='row justify-content-sm-center'>
+  <% @gardens.each do |garden| %>
+    <div class="card">
+      <h6><%= link_to garden.title, garden_path(garden) %></h6>
+      <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
+    </div>
+  <% end %>
+</div>
