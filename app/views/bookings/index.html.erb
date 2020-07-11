@@ -2,6 +2,6 @@
   <p>Nothing here</p>
 <% else %>
   <% @bookings.each do |booking| %>
-    <%= booking.current_user.first_name %>
+    <%= booking.user.first_name %>
   <% end %>
 <% end %>

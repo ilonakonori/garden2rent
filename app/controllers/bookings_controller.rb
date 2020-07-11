@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_garden, only: [:new, :create]
 
   def index
-    @bookings = current_user.bookings
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def show
@@ -11,14 +11,20 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.garden = @garden
+    @booking.user = current_user
+
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.garden = @garden
     @booking.user = current_user
+    authorize @booking
+
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
