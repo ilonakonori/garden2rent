@@ -1,7 +1,11 @@
 
 <h1><%= @garden.title %></h1>
-<p><%= @garden.user.first_name %></p>
-<p><%= @garden.location %></p>
+<%= cl_image_tag @garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+
+<p>Average rating: <%= @garden.avg_rating %></p>
+
+<p>Owner: <%= link_to @garden.user.first_name %></p> <!-- build this path -->
+<p>Location: <%= @garden.location %></p>
 <p><%= @garden.description %></p>
 <p><%= @garden.price %> €</p>
 <% if policy(@garden).destroy? %>
@@ -12,15 +16,15 @@
 <% end %>
 
 <% if @garden.user != current_user %>
-  <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p>
+  <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! -->
 <% end %>
 
 <% @garden.bookings.each do |booking| %>
-<% if booking.review %>
-<h4>Reviewer Name<%= booking.user.first_name %></h4>
-<p><%= booking.review.rating %></p>
-<p><%= booking.review.content %></p>
-<% end %>
-<br/>
-<br/>
+  <% if booking.review %>
+    <h4>Reviewer Name: <%= booking.user.first_name %></h4>
+    <p><%= '⭐' * booking.review.rating %></p>
+    <p><%= booking.review.content %></p>
+  <% end %>
+  <br/>
+  <br/>
 <% end %>

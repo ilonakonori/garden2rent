@@ -6,13 +6,17 @@
       <div>
         <%= cl_image_tag booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
         <h3><%= booking.garden.title %></h3>
-        <p><%= booking.start_date %></p>
-        <p><%= booking.end_date %></p>
+        <p>Check in: <%= booking.start_date %></p>
+        <p>Check out: <%= booking.end_date %></p>
+        <p>Total price: <%= booking.total %> €</p>
       </div>
       <div>
         <% if booking.review.nil? %>
-          <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+          <% if booking.end_date < Date.today %>
+            <%= link_to 'Leave a review', new_booking_review_path(booking) %>
+          <% end %>
         <% else %>
+          <%= '⭐' * booking.review.rating %>
           <p>you already wrote a review</p>
         <% end %>
       </div>
