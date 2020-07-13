@@ -1,30 +1,37 @@
-
+<div class="container">
 <h1><%= @garden.title %></h1>
-<%= cl_image_tag @garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+ <div class="row justify-content-sm-center">
+   <% @garden.photos.each do |photo|%>
+      <div class="col-4">
+        <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
+      </div>
+    <% end %>
+  </div>
+  <p>Average rating: <%= @garden.avg_rating %></p>
+  <p>Owner: <%= link_to @garden.user.first_name %></p> <!-- build this path -->
+  <p>Location: <%= @garden.location %></p>
+  <p><%= @garden.description %></p>
+  <p><%= @garden.price %> €</p>
 
-<p>Average rating: <%= @garden.avg_rating %></p>
-
-<p>Owner: <%= link_to @garden.user.first_name %></p> <!-- build this path -->
-<p>Location: <%= @garden.location %></p>
-<p><%= @garden.description %></p>
-<p><%= @garden.price %> €</p>
-<% if policy(@garden).destroy? %>
-  <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"} %></p>
-<% end %>
-<% if policy(@garden).edit? %>
-  <p><%= link_to 'Edit', edit_garden_path(@garden) %></p>
-<% end %>
-
-<% if @garden.user != current_user %>
-  <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! -->
-<% end %>
-
-<% @garden.bookings.each do |booking| %>
-  <% if booking.review %>
-    <h4>Reviewer Name: <%= booking.user.first_name %></h4>
-    <p><%= '⭐' * booking.review.rating %></p>
-    <p><%= booking.review.content %></p>
+  <% if policy(@garden).destroy? %>
+    <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"} %></p>
   <% end %>
-  <br/>
-  <br/>
-<% end %>
+
+  <% if policy(@garden).edit? %>
+    <p><%= link_to 'Edit', edit_garden_path(@garden) %></p>
+  <% end %>
+
+  <% if @garden.user != current_user %>
+    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! -->
+  <% end %>
+
+  <% @garden.bookings.each do |booking| %>
+    <% if booking.review %>
+      <h4>Reviewer Name: <%= booking.user.first_name %></h4>
+      <p><%= '⭐' * booking.review.rating %></p>
+      <p><%= booking.review.content %></p>
+    <% end %>
+    <br/>
+    <br/>
+  <% end %>
+</div>
