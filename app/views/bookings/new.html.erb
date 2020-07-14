@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-4">
-      <h4><%= @garden.title %></h4>
+      <h4><%= @garden.title %></h4> <!-- change this => datepicker -->
       <%= simple_form_for [@garden, @booking] do |f| %>
         <%= f.input :start_date, start_year: Date.tomorrow.year %>
         <%= f.input :end_date, start_year: Date.tomorrow.year %>

@@ -4,6 +4,7 @@
     <div class="garden_card">
       <h3 class="garden_class_title"><%= link_to garden.title, garden_path(garden) %></h3>
       <%= cl_image_tag garden.photos.first.key, height: 300, width: 300, crop: :fill %>
+      <%= garden.avg_rating %>
     </div>
   <% end %>
 </div>
