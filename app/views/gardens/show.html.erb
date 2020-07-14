@@ -36,29 +36,3 @@
     <br/>
   <% end %>
 </div>
-
-  <h1><%= @garden.title %></h1>
-  <p><%= @garden.user.first_name %></p>
-  <p><%= @garden.location %></p>
-  <p><%= @garden.description %></p>
-  <p><%= @garden.price %> €</p>
-  <% if policy(@garden).destroy? %>
-    <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"} %></p>
-  <% end %>
-  <% if policy(@garden).edit? %>
-    <p><%= link_to 'Edit', edit_garden_path(@garden) %></p>
-  <% end %>
-
-  <% if @garden.user != current_user %>
-    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p>
-  <% end %>
-
-  <% @garden.bookings.each do |booking| %>
-  <% if booking.review %>
-  <h4>Reviewer Name<%= booking.user.first_name %></h4>
-  <p><%= booking.review.rating %></p>
-  <p><%= booking.review.content %></p>
-  <% end %>
-  <br/>
-  <br/>
-  <% end %>
