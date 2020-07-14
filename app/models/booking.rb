@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :garden
   belongs_to :user
-  has_one :review
+  has_one :review, dependent: :destroy
   validates :start_date, :end_date, :garden_id, :user_id, presence: true
 
   # added custom methods
