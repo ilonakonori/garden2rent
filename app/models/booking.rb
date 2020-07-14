@@ -14,7 +14,7 @@ class Booking < ApplicationRecord
   end
 
   def start_date_cannot_be_greater_than_end_date
-    if start_date > end_date
+    if start_date >= end_date
       errors.add(:start_date, "can't be greater than end date")
     end
   end
