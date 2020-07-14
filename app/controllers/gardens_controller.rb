@@ -5,7 +5,7 @@ class GardensController < ApplicationController
   def index
     @gardens = policy_scope(Garden).order(created_at: :desc)
 
-    @markers = @gardens.map do |garden|
+    @markers = @gardens.geocoded.map do |garden| # I see map :D
       {
         lat: garden.latitude,
         lng: garden.longitude
