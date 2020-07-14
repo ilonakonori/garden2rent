@@ -6,11 +6,13 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to garden.title, garden_path(garden) %></h2>
+            <%= garden.avg_rating %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+
 
   <div id="map"
     style="width: 140%; height: 100vh"
