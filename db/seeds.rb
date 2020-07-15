@@ -128,7 +128,7 @@ The neighbours are chill and the restaurant within the garden community is lovel
 We would love you to take over our garden and see what you do with it.
 
 
-Ingrid and Rudolf"),
+Ingrid and Rudolf",
       price: Faker::Number.number(digits: 2),
       location: "Yorckstraße 55 Berlin")
     puts "new garden not saved yet"

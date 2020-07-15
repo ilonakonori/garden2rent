@@ -10,6 +10,6 @@ class Garden < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   def avg_rating
-    reviews.empty? ? 'no ratings yet' : '⭐' * reviews.average(:rating).round
+    reviews.empty? ? '' : '⭐' * reviews.average(:rating).round
   end
 end

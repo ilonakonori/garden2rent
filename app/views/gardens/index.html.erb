@@ -1,19 +1,22 @@
-<div class="content">
+<div class="content" style="padding-top: 72px;">
   <div class='inner-grid'>
     <% @gardens.each do |garden| %>
-      <div class="card-trip">
-        <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= link_to garden.title, garden_path(garden) %></h2>
-            <%= garden.avg_rating %>
+      <div class="card mb-3 card-trip">
+        <div class="row">
+          <div class="col-md-4">
+            <%= link_to garden_path(garden) do %>
+              <%= cl_image_tag garden.photos.first.key, height: 160, width: 160, crop: :fill %>
+            <% end %>
+          </div>
+          <div class="col-md-8" style="padding: 4px 24px 0 40px;">
+            <h6 style="margin-top: 8px;"><%= link_to garden.title, garden_path(garden) %></h6>
+            <p class="card-text"><%= garden.description[0..72] %> ...</p>
+            <p class="card-text"><%= garden.avg_rating %></p>
           </div>
         </div>
       </div>
     <% end %>
   </div>
-
-
   <div id="map"
     style="width: 140%; height: 100vh"
       data-markers="<%= @markers.to_json %>"
