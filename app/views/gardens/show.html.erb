@@ -1,18 +1,23 @@
-
-<div class="container">
-<h1><%= @garden.title %></h1>
- <div class="row justify-content-sm-center">
-   <% @garden.photos.each do |photo|%>
+<div class="container" style="padding-top: 72px;">
+  <%= link_to "All Gardens", gardens_path, class: "btn btn-outline-success" %>
+  <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
+  <div class="row justify-content-sm-center" style="padding: 24px 0;">
+    <% @garden.photos.each do |photo|%>
       <div class="col-4">
         <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
       </div>
     <% end %>
   </div>
-  <p>Average rating: <%= @garden.avg_rating %></p>
+
   <p>Owner: <%= link_to @garden.user.first_name %></p> <!-- build this path -->
   <p>Location: <%= @garden.location %></p>
   <p><%= @garden.description %></p>
-  <p><%= @garden.price %> €</p>
+  <p>Price per day: <%= @garden.price %> €</p>
+  <% if @garden.avg_rating == "" %>
+    <!-- display nothing or add smtng -->
+  <% else %>
+    <p>Average rating: <%= @garden.avg_rating %></p>
+  <% end %>
 
   <% if policy(@garden).destroy? %>
     <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"} %></p>
@@ -23,16 +28,20 @@
   <% end %>
 
   <% if @garden.user != current_user %>
-    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! -->
+    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! or not? -->
   <% end %>
 
-  <% @garden.bookings.each do |booking| %>
+  <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
-      <h4>Reviewer Name: <%= booking.user.first_name %></h4>
-      <p><%= '⭐' * booking.review.rating %></p>
-      <p><%= booking.review.content %></p>
+      <h3>REVIEWS:</h3>
+      <div class="row" style="border-bottom: 1px solid #ccc;">
+        <div class="col-sm-6">
+          <strong><%= booking.review.created_at.to_a[3..5].join(". ") %>, <%= booking.user.first_name %>: </strong>
+          <p><%= booking.review.content %></p>
+        </div>
+        <div class="col-sm-6 text-right">
+          <p><%= '⭐' * booking.review.rating %></p>
+        </div>
     <% end %>
-    <br/>
-    <br/>
   <% end %>
 </div>

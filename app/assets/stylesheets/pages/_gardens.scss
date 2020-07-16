@@ -1,6 +1,7 @@
 .card-trip {
   grid-gap: 16px;
-  padding-bottom: 24px;
+  border-radius: 4px;
+  max-width: 540px;
 }
 
 .content {
@@ -15,6 +16,7 @@
   grid-template-columns: 50% 50%;
   grid-gap: 24px;
 }
+
 #map {
   position: sticky;
   top: 0;

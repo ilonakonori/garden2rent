@@ -6,10 +6,12 @@
     </div>
   </div>
 
-  <div class='row justify-content-around card-container'>
+  <div class='row justify-content-around card-container' style="padding: 40px 72px;">
     <% @gardens.each do |garden| %>
-      <div class="card-trip">
-        <%= cl_image_tag garden.photos.first.key, height: 200, width: 200, crop: :fill %>
+      <div class="card-trip" style="max-width: 300px;">
+        <%= link_to garden_path(garden) do %>
+          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to garden.title, garden_path(garden) %></h2>
