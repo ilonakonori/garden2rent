@@ -15,8 +15,9 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to garden.title, garden_path(garden) %></h2>
-            <%= garden.avg_rating %>
-            <p>Short description here!</p>
+            <%#= garden.avg_rating %>
+            <p>Price per day: <%= garden.price %> €</p>
+            <p>⭐⭐⭐⭐⭐</p>
           </div>
         </div>
       </div>

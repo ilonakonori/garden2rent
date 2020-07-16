@@ -8,21 +8,22 @@
         <div class="col-sm-6">
           <%= cl_image_tag booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
         </div>
-      <div class="col-sm-6">
-        <h3><%= booking.garden.title %></h3>
-        <p>Check in: <%= booking.start_date %></p>
-        <p>Check out: <%= booking.end_date %></p>
-        <p>Total price: <%= booking.total_price %> €</p>
-        <% if booking.review.nil? %>
-          <% if booking.end_date < Date.today %>
-            <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn btn-outline-success" %>
+        <div class="col-sm-6">
+          <h3 style="padding-bottom: 16px;"><%= link_to booking.garden.title, garden_path(booking.garden) %></h3>
+          <p>Check in: <%= booking.start_date %></p>
+          <p>Check out: <%= booking.end_date %></p>
+          <p>Total price: <%= booking.total_price %> €</p>
+
+          <% if booking.review.nil? %>
+            <!--<#% if booking.end_date < Date.today %>-->
+              <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn btn-outline-success" %>
+            <!-- <#% end %> -->
+          <% else %>
+            <strong>Your review, created <%= booking.review.created_at.to_a[3..5].join(". ") %>.</strong>
+            <p><%= booking.review.content %></p>
+            <%= '⭐' * booking.review.rating %>
           <% end %>
-        <% else %>
-          <strong>Your review, created <%= booking.review.created_at.to_a[3..5].join(". ") %>.</strong>
-          <p><%= booking.review.content %></p>
-          <%= '⭐' * booking.review.rating %>
-        <% end %>
-      </div>
+        </div>
       </div>
     <% end %>
   <% end %>
