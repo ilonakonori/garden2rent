@@ -3,10 +3,12 @@
     <div class="col-4">
       <h4><%= @garden.title %></h4>
       <%= simple_form_for [@garden, @booking] do |f| %>
-        <%= f.input :start_date, start_year: Date.tomorrow.year %>
-        <%= f.input :end_date, start_year: Date.tomorrow.year %>
+        <%= f.input :start_date, as: :string, input_html: { class: 'flatpickr' } %>
+        <%= f.input :end_date, as: :string, input_html: { class: 'flatpickr' } %>
         <%= f.submit %>
       <% end %>
     </div>
   </div>
 </div>
+
+ 
