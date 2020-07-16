@@ -115,20 +115,18 @@ end
   1.times do
     new_garden = Garden.new(
       title: "Adam und Eva would make out here",
-      description: "
-Right in the center of Berlin, there is this beautiful place which will make you fall in love with life again. You are looking for a place to lie down, put up your feet and call your home away from home? You found your place.
-
-Away from all the trouble of Berlin’s city sound, there is this magical garden waiting for you. The garden belongs to me and my husband Rudolf. We love plants and everything that is green. Since we don’t have time for it these days we would like someone else to benefit from this.
-
-Grow whatever you feel like. Make use of the great earth. Make it fruits, vegetables or a nice flower bed.
-
-The neighbours are chill and the restaurant within the garden community is lovely and has tasty food.
-
-
-We would love you to take over our garden and see what you do with it.
-
-
-Ingrid and Rudolf"),
+      description: "Right in the center of Berlin, there is this beautiful place
+       which will make you fall in love with life again. You are looking for a
+       place to lie down, put up your feet and call your home away from home?
+       You found your place. Away from all the trouble of Berlin’s city sound,
+       there is this magical garden waiting for you. The garden belongs to me
+       and my husband Rudolf. We love plants and everything that is green.
+       Since we don’t have time for it these days we would like someone else to
+       benefit from this. Grow whatever you feel like. Make use of the great
+       earth. Make it fruits, vegetables or a nice flower bed. The neighbours
+       are chill and the restaurant within the garden community is lovely and
+       has tasty food. We would love you to take over our garden and see what
+       you do with it. Ingrid and Rudolf",
       price: Faker::Number.number(digits: 2),
       location: "Yorckstraße 55 Berlin")
     puts "new garden not saved yet"
