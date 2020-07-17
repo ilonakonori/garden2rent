@@ -1,10 +1,10 @@
-<div class="container" style="padding-top: 88px; height: 82vh;">
+<div class="container">
   <h1>My bookings</h1>
   <% if @bookings.empty? %>
     <p>You still don't have any bookings</p>
   <% else %>
     <% @bookings.each do |booking| %>
-      <div class="row" style="padding: 56px 0;">
+      <div class="row" style="padding: 24px 0;">
         <div class="col-sm-6">
           <%= cl_image_tag booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
         </div>
