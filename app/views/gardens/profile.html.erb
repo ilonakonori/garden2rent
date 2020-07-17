@@ -1,29 +1,33 @@
-<div class="container" style="padding-top: 88px; height: 82vh;">
-  <h1>My gardens</h1>
+<div class="container" style="padding-top: 102px; padding-bottom: 64px; width: 60%;">
+  <h1 class="text-center" style="padding-bottom: 24px;">My gardens</h1>
   <% if @gardens.empty? %>
     <p>You still don't have any gardens</p>
   <% else %>
     <% @gardens.each do |garden| %>
-      <div class="card mb-3 card-trip">
+      <div class="card mb-6" style="margin-bottom: 16px; border-radius: 8px;">
         <div class="row">
           <div class="col-md-4">
             <%= link_to garden_path(garden) do %>
-              <%= cl_image_tag garden.photos.first.key, height: 160, width: 160, crop: :fill %>
+              <%= cl_image_tag garden.photos.first.key, height: 294, width: 260, crop: :fill %>
             <% end %>
           </div>
-          <div class="col-md-8" style="padding: 4px 24px 0 40px;">
-            <h6 style="margin-top: 16px;"><%= link_to garden.title, garden_path(garden) %></h6>
-            <p class="card-text"><%= garden.description[0..72] %> ...</p>
-            <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
-            <p class="card-text"><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
-
-            <% if policy(garden).edit? %>
-             <h6><%= link_to 'Edit', edit_garden_path(garden) %></h6>
-            <% end %>
-            <% if policy(garden).destroy? %>
-              <h6><%= link_to "Delete", garden, method: :delete, data: {confirm: "Are you sure?"} %></h6>
-            <% end %>
-
+          <div class="col-md-8" style="padding: 16px 40px;">
+            <h6 style="margin: 16px 0;"><%= link_to garden.title, garden_path(garden) %></h6>
+            <div style="line-height: 20px;">
+              <p class="card-text">Address: <%= garden.location %> </p>
+              <p class="card-text">Price: <%= garden.price %> €</p>
+              <p class="card-text"><%= garden.description[0..110] %> ...</p>
+              <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+              <p class="card-text"><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
+            </div>
+            <div style="display: flex; justify-content: space-between;  padding-top: 16px;">
+              <% if policy(garden).edit? %>
+                <h6><%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %></h6>
+              <% end %>
+              <% if policy(garden).destroy? %>
+                <h6><%= link_to "Delete", garden, class: "btn btn-outline-success", method: :delete, data: {confirm: "Are you sure?"} %></h6>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
