@@ -1,10 +1,13 @@
-<h1>Leave a review</h1>
+<div class="container" style="padding-top: 72px;">
+  <div class="container-flat">
+    <h1>Leave a review</h1>
 
-<%= cl_image_tag @booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
-<h3><%= @booking.garden.title %></h3>
-<p><%= "Start Date: #{@booking.start_date} - End Date: #{@review.booking.end_date}" %></h3>
+    <%= cl_image_tag @booking.garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+    <h3><%= @booking.garden.title %></h3>
+    <p><%= "Start Date: #{@booking.start_date} - End Date: #{@review.booking.end_date}" %></p>
 
+    <%= render 'form', review: @review, booking: @booking %>
 
-<%= render 'form', review: @review, booking: @booking %>
-
-<%= link_to 'Back', bookings_path %>
+    <%= link_to 'Back', bookings_path %>
+  </div>
+</div>
