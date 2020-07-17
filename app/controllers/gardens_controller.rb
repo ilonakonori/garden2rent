@@ -52,6 +52,11 @@ class GardensController < ApplicationController
     redirect_to gardens_path, notice: 'Garden was succsesfully removed!'
   end
 
+  def profile
+    @gardens = current_user.gardens
+    authorize @gardens
+  end
+
   private
 
   def garden_params
