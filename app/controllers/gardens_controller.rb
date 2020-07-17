@@ -3,7 +3,11 @@ class GardensController < ApplicationController
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = policy_scope(Garden).order(created_at: :desc)
+    if params[:query].present?
+      @gardens = policy_scope(Garden).search_by_location(params[:query])
+    else
+      @gardens = policy_scope(Garden).order(created_at: :desc)
+    end
 
     @markers = @gardens.geocoded.map do |garden| # I see map :D
       {

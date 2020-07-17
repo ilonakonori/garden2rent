@@ -1,18 +1,33 @@
 <div>
   <div class="navbar fixed-top navbar-expand-sm navbar-light navbar-garden">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag("logo.jpeg") %>
+      <%= image_tag("logo.jpg") %>
     <% end %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item active nav-link">
+<<<<<<< HEAD
             <%= link_to "Add garden", new_garden_path %> <!-- on profile page -->
           </li>
           <li class="nav-item active nav-link">
             <%= link_to bookings_path do %>
               <%= "My Bookings" %> <!-- make user profile page, add user_name and user_photo - avatar -->
             <% end %>
+=======
+            <%#= link_to "#" do %>
+              <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar" %> <!-- make user profile page, add user_name and user_photo - avatar -->
+            <%# end %>
+          </li>
+          <li class="nav-item active nav-link">
+            <%= link_to "Add garden", new_garden_path %> <!-- dropdown on avatar-->
+          </li>
+           <li class="nav-item active nav-link">
+            <%= link_to "My Bookings", bookings_path %> <!-- dropdown on avatar -->
+          </li>
+           <li class="nav-item active nav-link">
+            <%= link_to "My Gardens"  %> <!-- build this path  -- dropdown on avatar -->
+>>>>>>> master
           </li>
           <li class="nav-item active nav-link">
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <!-- dropdown on avatar -->

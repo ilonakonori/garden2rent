@@ -1,5 +1,5 @@
-<div class="container w-75" style="padding-top: 80px;">
-  <h1 class="font-weight-bold mb-5">My bookings</h1>
+<div class="container" style="padding-top: 88px; height: 82vh;">
+  <h1>My bookings</h1>
   <% if @bookings.empty? %>
     <div class="d-flex align-items-center justify-content-center pb-10 pt-10">
       <p class="text-secondary">You made no bookings yet.</p>
@@ -12,18 +12,22 @@
             <%= cl_image_tag booking.garden.photos.first.key, height: 150, width: 200, crop: :fill %>
           </div>
         </div>
-        <div class="p-2 bd-highlight">
-          <h2><%= link_to booking.garden.title, garden_path(booking.garden) %></h2>
-          <p><%= "Stayed here: #{booking.start_date} - #{booking.end_date}" %><br/>
-          <%= "Price: #{booking.total_price} €" %></p>
-        </div>
-        <div class="ml-auto bd-highlight align-items-center justify-content-center">
+
+        <div class="col-sm-6">
+          <h3 style="padding-bottom: 16px;"><%= link_to booking.garden.title, garden_path(booking.garden) %></h3>
+          <p>Check in: <%= booking.start_date %></p>
+          <p>Check out: <%= booking.end_date %></p>
+          <p>Total price: <%= booking.total_price %> €</p>
+
           <% if booking.review.nil? %>
+            <!--<#% if booking.end_date < Date.today %>-->
               <%= link_to 'Leave a review', new_booking_review_path(booking), class: "btn btn-outline-success" %>
+            <!-- <#% end %> -->
           <% else %>
-                <strong>Your review, created <%= booking.review.created_at.to_a[3..5].join(". ") %>.</strong>
-                <p><%= booking.review.content %></p>
-                <%= '⭐' * booking.review.rating %>
+            <strong>Your review, created <%= booking.review.created_at.to_a[3..5].join(". ") %>.</strong>
+            <p><%= booking.review.content %></p>
+            <%= '⭐' * booking.review.rating %>
+
           <% end %>
         </div>
       </div>
