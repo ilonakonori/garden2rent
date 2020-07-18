@@ -39,8 +39,9 @@
 
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
+    <div style="padding-top: 32px">
       <h3>REVIEWS:</h3>
-      <div class="row" style="border-bottom: 1px solid #ccc;">
+      <div class="row">
         <div class="col-sm-6">
           <strong><%= booking.review.created_at.to_a[3..5].join(". ") %>, <%= booking.user.first_name %>: </strong>
           <p><%= booking.review.content %></p>
@@ -48,6 +49,8 @@
         <div class="col-sm-6 text-right">
           <p><%= '⭐' * booking.review.rating %></p>
         </div>
+      </div>
     <% end %>
+    </div>
   <% end %>
 </div>
