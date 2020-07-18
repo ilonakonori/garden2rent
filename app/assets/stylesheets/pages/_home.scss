@@ -109,7 +109,6 @@
 
 // start of footer
 .footer {
-  position:fixed;
   bottom:0;
   width: 100%;
   box-shadow: 2px 2px 3px 4px #eaeaea;
@@ -119,7 +118,7 @@
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  padding: 0px 50px;
+  padding: 0px 20px;
   color: rgba(0,0,0,0.3);
 }
 
@@ -146,7 +145,7 @@
 }
 
 .footer-copyright {
- font-size: 22px;
+ font-size: 18px;
 }
 
 // end of footer
