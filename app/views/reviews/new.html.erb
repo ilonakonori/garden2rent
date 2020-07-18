@@ -1,8 +1,8 @@
-<div class="container w-75" style="padding-top: 88px; height: 82vh;">
+<div class="container w-75">
     <span id="linkback"><%= link_to "Go back", bookings_path %></span>
     <h1>Leave a review</h1>
 
-        <div class="card-review d-flex w-100 mb-5">
+        <div class="card-review d-flex w-100 mt-5 mb-4">
           <div>
             <%= cl_image_tag @booking.garden.photos.first.key, height: 180, width: 200, crop: :fill %>
           </div>
