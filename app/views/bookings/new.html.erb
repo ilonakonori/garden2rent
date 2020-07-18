@@ -1,12 +1,20 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-4">
-      <h4><%= @garden.title %></h4> <!-- change this => datepicker -->
+    <div class="col-md-6" style="padding-top: 32px;">
+      <h4 style="margin-bottom: 32px"><%= @garden.title %></h4>
+      <%= cl_image_tag @garden.photos.first.key, height: 300, width: 500, crop: :fill %>
+    </div>
+    <div class="col-md-6" style="padding-top: 32px;">
+      <h4 style="margin-bottom: 32px">Book this garden</h4>
       <%= simple_form_for [@garden, @booking] do |f| %>
-        <%= f.input :start_date, start_year: Date.tomorrow.year %>
-        <%= f.input :end_date, start_year: Date.tomorrow.year %>
+        <%= f.input :start_date, as: :string, input_html: { class: 'flatpickr' } %>
+        <%= f.input :end_date, as: :string, input_html: { class: 'flatpickr' } %>
         <%= f.submit %>
       <% end %>
+      <br>
+      <br>
+      <%= link_to "All Gardens", gardens_path(@gardens), class: "btn btn-outline-success" %>
     </div>
   </div>
 </div>
+

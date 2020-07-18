@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :gardens, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_one_attached :photo
+  validates :photo, presence: true
   validates :first_name, :last_name, presence: true, length: { in: 2..20 }, format: { with: /\A[a-zA-Z]+\z/ }
 end
