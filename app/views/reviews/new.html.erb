@@ -2,14 +2,15 @@
     <span id="linkback"><%= link_to "Go back", bookings_path %></span>
     <h1>Leave a review</h1>
 
-        <div class="card-review d-flex w-100">
+        <div class="card-review d-flex w-100 mb-5">
           <div>
             <%= cl_image_tag @booking.garden.photos.first.key, height: 180, width: 200, crop: :fill %>
           </div>
 
-          <div class="card-review-infos d-flex flex-column w-100 ">
+          <div class="card-review-infos d-flex flex-column w-100">
             <div>
               <h3><%= @booking.garden.title %></h3>
+              <p><%= @booking.garden.location %></p>
               <p> <%= "#{@booking.start_date.strftime("%-d. %B, %Y")} - #{@booking.end_date.strftime("%-d. %B, %Y")}" %></p>
               <p><%= @booking.total_price %> €</p>
             </div>
