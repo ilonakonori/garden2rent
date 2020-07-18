@@ -4,6 +4,10 @@
   max-width: 540px;
 }
 
+.card-trip p {
+  font-size: 16px;
+}
+
 .content {
   padding-top: 72px;
   margin-left: 48px;
@@ -13,6 +17,10 @@
   display: grid;
   grid-template-columns: 45% 50%;
   gap: 16px;
+}
+
+.card-text {
+  font-size: 24px;
 }
 
 #map {
