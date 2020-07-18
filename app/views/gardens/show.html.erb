@@ -23,12 +23,13 @@
     <p>Average rating: <%= @garden.avg_rating %></p>
   <% end %>
 
-  <% if policy(@garden).destroy? %>
-    <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"} %></p>
+  <% if policy(@garden).edit? %>
+    <p><%= link_to 'Edit', edit_garden_path(@garden), class: "link-color" %></p>
   <% end %>
 
-  <% if policy(@garden).edit? %>
-    <p><%= link_to 'Edit', edit_garden_path(@garden) %></p>
+
+  <% if policy(@garden).destroy? %>
+    <p><%= link_to "Delete", @garden, method: :delete, data: {confirm: "Are you sure?"}, class: "link-color" %></p>
   <% end %>
 
   <% if @garden.user != current_user %>
