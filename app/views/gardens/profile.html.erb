@@ -1,9 +1,11 @@
-<div class="container w-75" style="padding-top: 88px; height: 82vh;">
+<div class="container w-75" >
   <h1>My gardens <span class="counter"><%= "(#{@gardens.count})" %></span></h1>
   <% if @gardens.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
       <p class="text-secondary"> You still don't have any gardens</p>
   <% else %>
+
+  <div class='mt-5'>
     <% @gardens.each do |garden| %>
       <div class="card-booking d-flex w-100">
         <div>
@@ -34,5 +36,6 @@
         </div>
       </div>
     <% end %>
+  </div>
   <% end %>
 </div>
