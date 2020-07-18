@@ -1,4 +1,5 @@
 <div class="container">
+   <span id="linkback"><%= link_to "Back to garden search", gardens_path(@gardens) %></span>
   <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
   <div class="row justify-content-sm-center" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
@@ -23,6 +24,7 @@
     <p>Average rating: <%= @garden.avg_rating %></p>
   <% end %>
 
+
   <div style="display: flex; justify-content: flex-start;">
   <% if policy(@garden).destroy? %>
     <p><%= link_to "Delete", @garden, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"} %></p>
@@ -31,6 +33,7 @@
 
   <% if policy(@garden).edit? %>
     <p><%= link_to 'Edit', edit_garden_path(@garden), class: "button_outline button_outline-text" %></p>
+
   <% end %>
   </div>
     <% if @garden.user != current_user %>
@@ -38,7 +41,7 @@
     <% end %>
 
 
-  <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %>
+ <!--  <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %> -->
 
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
@@ -53,7 +56,7 @@
           <p><%= '⭐' * booking.review.rating %></p>
         </div>
       </div>
-    <% end %>
     </div>
+    <% end %>
   <% end %>
 </div>

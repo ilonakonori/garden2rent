@@ -1,5 +1,5 @@
 
-<div class="container w-75" style="padding-top: 88px; height: 82vh;">
+<div class="container w-75" >
   <h1>My bookings <span class="counter"><%= "(#{@bookings.count})" %></span></h1>
   <% if @bookings.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
@@ -7,7 +7,7 @@
     </div>
   <% else %>
 
-
+  <div class='mt-5'>
     <% @bookings.each do |booking| %>
       <div class="card-booking d-flex w-100">
         <div>
@@ -38,6 +38,7 @@
         </div>
       </div>
     <% end %>
+    </div>
   <% end %>
 </div>
 
