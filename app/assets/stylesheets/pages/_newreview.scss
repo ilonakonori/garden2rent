@@ -1,10 +1,63 @@
 h1 {
   font-weight: bold;
   padding-bottom: 25px;
+  padding-top: 15px;
 }
 
 .image {
   height: 700px;
   width: 700px;
   object-fit: cover;
+}
+
+.card-booking:hover {
+  text-decoration: none;
+}
+
+#linkback a {
+  color: lightgrey;
+  text-decoration: none;
+}
+
+#linkback a:hover {
+  color: black;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.submit {
+  border:none;
+}
+
+.ratingwidth {
+  width: auto;
+}
+
+
+.card-review {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+  border-radius: 4px;
+  margin-bottom: 25px;
+  text-decoration: none;
+}
+
+.card-review:hover {
+  text-decoration: none;
+}
+
+
+.card-review p {
+  font-size: 12px;
+  opacity: .4;
+  margin: 0;
+}
+
+.card-review .card-review-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
