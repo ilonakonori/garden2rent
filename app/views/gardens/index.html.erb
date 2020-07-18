@@ -1,16 +1,18 @@
 <div class="content container">
   <div class='inner-grid'>
     <div>
-      <div class="form-inline" style="margin-bottom: 16px; margin-left: 48px;">
+      <div class="form-inline" style="margin-bottom: 16px;">
         <%= form_tag gardens_path, class: "form-inline", method: :get do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control m-3",
           placeholder: "Search by location"
           %>
-          <%= submit_tag "Search", class: "btn btn-outline-success" %>
+          <%= submit_tag "Search", class: "button button-text m-1" %>
         <% end %>
-        <%= link_to "All gardens", gardens_path(@gardens), class: "btn btn-outline-success" %>
+
+        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-1" %>
+
       </div>
 
       <% if @gardens.empty? %>
