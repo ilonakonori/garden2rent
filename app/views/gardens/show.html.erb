@@ -8,7 +8,12 @@
     <% end %>
   </div>
 
-  <p>Owner: <%= link_to @garden.user.first_name %></p> <!-- build this path -->
+  <% if @garden.user == current_user %>
+    <p>Owner: <%= link_to @garden.user.first_name, profile_gardens_path %></p> <!-- build this path -->
+  <% else %>
+    <p>Owner: <%= @garden.user.first_name %></p>
+  <% end %>
+
   <p>Location: <%= @garden.location %></p>
   <p><%= @garden.description %></p>
   <p>Price per day: <%= @garden.price %> €</p>

@@ -7,17 +7,26 @@ h3 {
   font-size: 1.25rem;
 }
 
-a:link {
-  text-decoration: none;
+#fuckopacity {
+  opacity: 0.7;
 }
 
-a:visited {
-  text-decoration: none;
+.counter {
+  opacity: .4;
+  font-weight: lighter;
 }
 
-a:hover {
-  text-decoration: none;
-}
+// a:link {
+//   text-decoration: none;
+// }
+
+// a:visited {
+//   text-decoration: none;
+// }
+
+// a:hover {
+//   text-decoration: none;
+// }
 
 .review {
   font-size: 12px;
@@ -56,6 +65,5 @@ a:hover {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
 }

@@ -1,0 +1,37 @@
+<div class="container w-75" style="padding-top: 88px; height: 82vh;">
+  <h1>My gardens <span class="counter"><%= "(#{@gardens.count})" %></span></h1>
+  <% if @gardens.empty? %>
+    <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
+      <p class="text-secondary"> You still don't have any gardens</p>
+  <% else %>
+    <% @gardens.each do |garden| %>
+      <div class="card-booking d-flex w-100">
+        <div>
+          <%= link_to garden_path(garden) do %>
+            <%= cl_image_tag garden.photos.first.key, height: 208, width: 200, crop: :fill %>
+          <% end %>
+        </div>
+        <div class="card-booking-infos d-flex flex-column w-100 ">
+          <div>
+            <h3><%= link_to garden.title, garden_path(garden) %></h3>
+            <div style="line-height: 20px;">
+              <p>Address: <%= garden.location %> </p>
+              <p>Price: <%= garden.price %> €</p>
+              <p><%= garden.description[0..110] %> ...</p>
+              <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+              <p class="card-text"><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
+            </div>
+            <div style="display: flex; justify-content: flex-start; padding-top: 16px;">
+              <% if policy(garden).edit? %>
+                <h6><%= link_to 'Edit', edit_garden_path(garden), class: "btn btn-outline-success" %></h6>
+              <% end %>
+              <% if policy(garden).destroy? %>
+                <h6><%= link_to "Delete", garden, class: "btn btn-outline-success", method: :delete, data: {confirm: "Are you sure?"} %></h6>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

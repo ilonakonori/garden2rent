@@ -10,7 +10,9 @@
           %>
           <%= submit_tag "Search", class: "button button-text m-1" %>
         <% end %>
-        <%= link_to "All gardens", gardens_path(policy_scope(Garden).order(created_at: :desc)), class: "button button-text m-1" %>
+
+        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-1" %>
+
       </div>
 
       <% if @gardens.empty? %>
@@ -25,9 +27,11 @@
                 <%= cl_image_tag garden.photos.first.key, height: 160, width: 160, crop: :fill %>
               <% end %>
             </div>
-            <div class="col-md-8" style="padding: 4px 24px 0 40px;">
-              <h6 style="margin-top: 16px;"><%= link_to garden.title, garden_path(garden) %></h6>
+            <div class="col-md-8" style="padding: 4px 16px;">
+              <h6 style="margin-top: 12px;"><%= link_to garden.title, garden_path(garden) %></h6>
               <p class="card-text"><%= garden.description[0..72] %> ...</p>
+              <p class="card-text">Price per day: <%= garden.price %> €</p>
+
               <!--
               <#% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
               <p class="card-text"><%#= garden.avg_rating %> (<%#= garden.reviews.count %> <%#= sg_pl %>)</p>
