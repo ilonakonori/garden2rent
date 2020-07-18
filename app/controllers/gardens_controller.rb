@@ -12,7 +12,8 @@ class GardensController < ApplicationController
     @markers = @gardens.geocoded.map do |garden| # I see map :D
       {
         lat: garden.latitude,
-        lng: garden.longitude
+        lng: garden.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { garden: garden })
       }
     end # Iva will follow up - done!
   end
