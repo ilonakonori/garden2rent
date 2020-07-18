@@ -1,19 +1,19 @@
 <div class="container">
+  <span id="linkback"><%= link_to "Back to garden", garden_path(@garden) %></span>
   <div class="row justify-content-center">
     <div class="col-md-6" style="padding-top: 32px;">
       <h4 style="margin-bottom: 32px"><%= @garden.title %></h4>
       <%= cl_image_tag @garden.photos.first.key, height: 300, width: 500, crop: :fill %>
     </div>
     <div class="col-md-6" style="padding-top: 32px;">
-      <h4 style="margin-bottom: 32px">Book this garden</h4>
+      <h4 style="margin-bottom: 32px">Pick your dates</h4>
       <%= simple_form_for [@garden, @booking] do |f| %>
         <%= f.input :start_date, as: :string, input_html: { class: 'flatpickr' } %>
         <%= f.input :end_date, as: :string, input_html: { class: 'flatpickr' } %>
-        <%= f.submit %>
+        <%= f.submit "Book garden", class: 'button button-text submit'%>
       <% end %>
       <br>
       <br>
-      <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %>
     </div>
   </div>
 </div>
