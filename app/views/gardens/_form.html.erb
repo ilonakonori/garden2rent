@@ -5,8 +5,8 @@
   <%= f.input :price %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <% if garden.persisted? %>
-    <%= f.submit value="Edit", class: "btn btn-outline-success" %>
+    <%= f.submit value="Edit", class: "button button-text" %>
   <% else %>
-    <%= f.submit value="Add", class: "btn btn-outline-primary" %>
+    <%= f.submit value="Add", class: "button button-text" %>
   <% end %>
 <% end %>

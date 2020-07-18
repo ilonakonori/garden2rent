@@ -1,5 +1,4 @@
 <div class="container">
-  <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %>
   <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
   <div class="row justify-content-sm-center" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
@@ -28,8 +27,10 @@
   <% end %>
 
   <% if @garden.user != current_user %>
-    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id) %></p> <!-- change this => display booking form here! or not? -->
+    <p><%= link_to 'Book it', new_garden_booking_path(@garden.id), class: "button button-text" %></p> <!-- change this => display booking form here! or not? -->
   <% end %>
+
+  <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %>
 
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
