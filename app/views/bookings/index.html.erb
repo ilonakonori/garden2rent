@@ -6,7 +6,6 @@
     </div>
   <% else %>
     <% @bookings.each do |booking| %>
-
       <div class="card-booking d-flex w-100">
         <div>
           <%= link_to garden_path(booking.garden) do %>

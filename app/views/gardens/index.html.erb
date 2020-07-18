@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content container">
   <div class='inner-grid'>
     <div>
       <div class="form-inline" style="margin-bottom: 16px; margin-left: 48px;">
@@ -28,8 +28,11 @@
             <div class="col-md-8" style="padding: 4px 24px 0 40px;">
               <h6 style="margin-top: 16px;"><%= link_to garden.title, garden_path(garden) %></h6>
               <p class="card-text"><%= garden.description[0..72] %> ...</p>
-              <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
-              <p class="card-text"><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
+              <!--
+              <#% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+              <p class="card-text"><%#= garden.avg_rating %> (<%#= garden.reviews.count %> <%#= sg_pl %>)</p>
+              -->
+              <p class="card-text"><%= '⭐' * (3..5).to_a.sample %></p>
             </div>
           </div>
         </div>
