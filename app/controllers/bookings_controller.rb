@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.save
-      redirect_to bookings_path
+      redirect_to bookings_path, notice: "Booking successful, enjoy your garden stay!"
     else
       render :new
     end
