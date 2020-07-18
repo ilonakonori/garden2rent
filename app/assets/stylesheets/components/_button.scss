@@ -25,3 +25,22 @@
   font-size: 1rem;
   line-height: 1.5;
 }
+
+.button_outline {
+  color: black;
+  padding: 8px 24px;
+  margin-bottom: 24px;
+  margin-right: 24px;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.3s ease;
+  border: 2px solid #FCD490
+}
+
+.button_outline-text {
+  color: #6D6E6A
+}
+
+.button_outline-text:hover {
+  color: black;
+}
