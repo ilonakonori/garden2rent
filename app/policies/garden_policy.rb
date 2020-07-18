@@ -13,6 +13,10 @@ class GardenPolicy < ApplicationPolicy
     true
   end
 
+  def profile?
+    true
+  end
+
   def update?
     user_is_owner?
   end
