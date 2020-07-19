@@ -30,7 +30,7 @@
             <div class="col-md-8" style="padding: 12px 24px;">
               <h5 style="margin-top: 12px;"><%= link_to garden.title, garden_path(garden) %></h5>
               <p class="card-text"><%= garden.description[0..72] %> ...</p>
-              <p class="card-text"><span style="color: black"> Price per day: <%= garden.price %> €</span></p>
+              <p class="card-text"><span style="color: black"> €<%= garden.price %> </span> / day</p>
 
               <!--
               <#% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
@@ -41,10 +41,8 @@
           </div>
         </div>
       <% end %>
-
     <% end %>
-    </div>
-
+  </div>
     <div>
       <div id="map"
         style="width: 100%; height: 100vh"
@@ -54,4 +52,3 @@
     </div>
   </div>
 </div>
-

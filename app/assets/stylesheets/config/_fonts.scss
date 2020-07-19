@@ -1,5 +1,8 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;2,900;1,500&display=swap');
+
+// console error: https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;2,900;1,500&display=swap net::ERR_ABORTED 400
+//@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;2,900;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,900;1,400;1,500;1,900&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Rubik", "Helvetica", "sans-serif";
