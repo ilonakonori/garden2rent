@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = Booking.new
+    #@booking = Booking.new
     @booking.garden = @garden
     @booking.user = current_user
 
@@ -26,7 +26,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path, notice: "Booking successful, enjoy your garden stay!"
     else
-      render :new
+      redirect_to garden_path(@garden)
+      #render :new #???
     end
   end
 
