@@ -37,7 +37,7 @@
   <% end %>
   </div>
 
-  <%= render 'new_booking', garden: @garden, booking: @booking %>
+  <%= render 'gardens/new_booking', garden: @garden, booking: @booking %>
 
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
