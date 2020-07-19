@@ -41,13 +41,14 @@
     <%= render 'gardens/new_booking', garden: @garden, booking: @booking %>
   <% end %>
 
+<!-- make this reviews pretty -->
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
-    <div style="padding-top: 32px">
-      <h3>REVIEWS:</h3>
+   <!-- <h3 style="padding: 32px 0">REVIEWS:</h3>-->
+    <div style="padding: 16px 0">
       <div class="row">
         <div class="col-sm-6">
-          <strong><%= booking.review.created_at.to_a[3..5].join(". ") %>, <%= booking.user.first_name %>: </strong>
+          <strong><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
           <p><%= booking.review.content %></p>
         </div>
         <div class="col-sm-6 text-right">
@@ -57,4 +58,5 @@
     </div>
     <% end %>
   <% end %>
+
 </div>

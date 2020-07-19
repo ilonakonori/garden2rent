@@ -5,7 +5,8 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, :garden_id, :user_id, presence: true
 
   # added custom methods
-  validate :start_date_cannot_be_in_the_past, :start_date_cannot_be_greater_than_end_date
+  validate :start_date_cannot_be_in_the_past
+  validate :start_date_cannot_be_greater_than_end_date
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < Date.tomorrow
@@ -14,7 +15,7 @@ class Booking < ApplicationRecord
   end
 
   def start_date_cannot_be_greater_than_end_date
-    if start_date >= end_date
+    if start_date.present? && start_date >= end_date
       errors.add(:start_date, "can't be greater than end date")
     end
   end
