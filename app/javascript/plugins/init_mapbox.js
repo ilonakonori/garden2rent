@@ -13,8 +13,16 @@ const buildMap = () => {
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    
-    new mapboxgl.Marker()
+
+    const el = document.createElement('div');
+    el.className = 'marker';
+    el.style.backgroundImage = `url('${marker.image_url}')`;
+    el.style.backgroundSize = 'contain';
+    el.style.width = '24px';
+    el.style.height = '48px';
+    el.style.filter = 'hue-rotate(25deg)';
+
+    new mapboxgl.Marker(el)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
