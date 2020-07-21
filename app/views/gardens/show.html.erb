@@ -19,20 +19,28 @@
 
       <p>Location: <%= @garden.location %></p>
       <p><%= @garden.description %></p>
-      <p>Price per day: <%= @garden.price %> €</p>
+      <p>Price: €<%= @garden.price %> / day</p>
       <% if @garden.avg_rating == "" %>
         <!-- display nothing or add smtng -->
       <% else %>
-        <p>Average rating: <%= @garden.avg_rating %></p>
+        <% @garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+        <p><%= @garden.avg_rating %> (<%= @garden.reviews.count %> <%= sg_pl %>)</p>
       <% end %>
     </div>
 
     <% if @garden.user != current_user %>
       <%= render 'gardens/new_booking', garden: @garden, booking: @booking %>
     <% else %>
-      <div class="col-4" style="vertical-align: middle; text-align: center;">
+      <div class="col-4" style="text-align: left;">
         <!-- add smtng here -->
-        <div style="display:flex; justify-content: space-around;">
+        <p style="text-align: center;">Hello <%= @garden.user.first_name %>!</p>
+        <br>
+        <% if @garden.bookings.count > 0 %>
+          <% @garden.bookings.count == 1 ? sg_pl = "time" : sg_pl = "times" %>
+          <p>You garden <strong><%= @garden.title %></strong> has been booked <%= @garden.bookings.count %> <%= sg_pl %>!</p>
+        <% end %>
+        <br>
+        <div style="display:flex; justify-content: center; align-items: center;">
         <% if policy(@garden).edit? %>
           <p><%= link_to 'Edit', edit_garden_path(@garden), class: "button_outline button_outline-text" %></p>
         <% end %>
