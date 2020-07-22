@@ -33,8 +33,9 @@
 }
 
 a {
-  color: #000;
+  color: #353535;
 }
+
 a:hover {
   text-decoration: none;
   color: #6D6E6A;
@@ -48,4 +49,25 @@ a:hover {
   box-shadow: 2px 2px 3px 4px #ddd;
   padding: 24px;
   border-radius: 8px;
+}
+
+.card-garden {
+  text-align: justify;
+  padding-right: 40px;
+  color: #232323;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.form-booking {
+  font-size: 14px;
+  padding: 8px 16px;
+}
+
+.form-booking h4 {
+  margin-bottom: 32px;
+}
+
+.form-booking .m {
+  margin-top: 20px;
 }

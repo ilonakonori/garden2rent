@@ -10,7 +10,7 @@
   </div>
 
   <div class="row box">
-    <div class="col-8" style="text-align: justify; padding-right: 40px;">
+    <div class="col-8 card-garden">
       <% if @garden.user == current_user %>
         <p>Owner: <%= link_to @garden.user.first_name, profile_gardens_path %></p>
       <% else %>
@@ -57,7 +57,7 @@
       <br>
       <div class="row box">
         <div class="col-6">
-          <strong><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
+          <p style="color: #696969;"><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
           <p><%= booking.review.content %></p>
         </div>
         <div class="col-6 text-right">
