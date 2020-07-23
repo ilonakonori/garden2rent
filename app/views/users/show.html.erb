@@ -1,0 +1,48 @@
+<div class="container w-75" >
+  <span id="linkback"><%= link_to "Back to garden search", gardens_path(@gardens) %></span>
+  <div class='mt-5'>
+    <div class="card-booking d-flex w-100">
+      <div>
+        <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill %>
+      </div>
+      <div class="card-booking-infos d-flex flex-column w-100 ">
+        <div>
+          <h6><%= @user.first_name %> <%= @user.last_name %></h6>
+          <p><%= @user.short_bio %></p>
+          <% if @user == current_user %>
+            <br>
+            <%= link_to "Edit profile", edit_user_registration_path %>
+            <br><br>
+            <%= link_to "My Gardens", my_gardens_gardens_path %> |
+            <%= link_to "Add Garden", new_garden_path %> |
+            <%= link_to "My Bookings", bookings_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <% if @user == current_user %>
+   <!-- display nothing -->
+  <% else %>
+  <h3>My Gardens (<%= @user.gardens.count %>)</h3>
+  <% @user.gardens.each do |garden| %>
+    <div class='mt-5'>
+      <div class="card-booking d-flex w-100">
+        <div>
+          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
+        </div>
+        <div class="card-booking-infos d-flex flex-column w-100 ">
+          <h3><%= link_to garden.title, garden_path(garden) %></h3>
+          <p>Address: <%= garden.location %> </p>
+          <p>Price: <%= garden.price %> €</p>
+          <p><%= garden.description[0..110] %> ...</p>
+          <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+        <p><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
