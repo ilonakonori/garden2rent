@@ -1,0 +1,8 @@
+ <div class="col-4 form-booking">
+      <h4>Pick your dates</h4>
+      <%= simple_form_for [garden, booking] do |f| %>
+        <%= f.input :start_date, as: :string, input_html: { class: 'flatpickr' } %>
+        <%= f.input :end_date, as: :string, input_html: { class: 'flatpickr' } %>
+        <%= f.submit "Book garden", class: 'button button-text submit m'%>
+      <% end %>
+</div>

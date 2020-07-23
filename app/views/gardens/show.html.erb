@@ -1,62 +1,69 @@
 <div class="container">
-   <span id="linkback"><%= link_to "Back to garden search", gardens_path(@gardens) %></span>
+  <span id="linkback"><%= link_to "Back to garden search", gardens_path(@gardens) %></span>
   <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
-  <div class="row justify-content-sm-center" style="padding: 24px 0;">
+  <div class="row" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
       <div class="col-4">
-        <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
+        <%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill %>
       </div>
     <% end %>
   </div>
 
-  <% if @garden.user == current_user %>
-    <p>Owner: <%= link_to @garden.user.first_name, profile_gardens_path %></p> <!-- build this path -->
-  <% else %>
-    <p>Owner: <%= @garden.user.first_name %></p>
-  <% end %>
+  <div class="row box">
+    <div class="col-8 card-garden">
+      <% if @garden.user == current_user %>
+        <p>Owner: <%= link_to @garden.user.first_name, profile_gardens_path %></p>
+      <% else %>
+        <p>Owner: <%= @garden.user.first_name %></p>
+      <% end %>
 
-  <p>Location: <%= @garden.location %></p>
-  <p><%= @garden.description %></p>
-  <p>Price per day: <%= @garden.price %> €</p>
-  <% if @garden.avg_rating == "" %>
-    <!-- display nothing or add smtng -->
-  <% else %>
-    <p>Average rating: <%= @garden.avg_rating %></p>
-  <% end %>
+      <p>Location: <%= @garden.location %></p>
+      <p><%= @garden.description %></p>
+      <p>Price: €<%= @garden.price %> / day</p>
+      <% if @garden.avg_rating == "" %>
+        <!-- display nothing or add smtng -->
+      <% else %>
+        <% @garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+        <p><%= @garden.avg_rating %> (<%= @garden.reviews.count %> <%= sg_pl %>)</p>
+      <% end %>
+    </div>
 
-
-  <div style="display: flex; justify-content: flex-start;">
-  <% if policy(@garden).destroy? %>
-    <p><%= link_to "Delete", @garden, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"} %></p>
-  <% end %>
-
-
-  <% if policy(@garden).edit? %>
-    <p><%= link_to 'Edit', edit_garden_path(@garden), class: "button_outline button_outline-text" %></p>
-
-  <% end %>
-  </div>
     <% if @garden.user != current_user %>
-      <p><%= link_to 'Book it', new_garden_booking_path(@garden.id), class: "button button-text" %></p> <!-- change this => display booking form here! or not? -->
+      <%= render 'gardens/new_booking', garden: @garden, booking: @booking %>
+    <% else %>
+      <div class="col-4" style="text-align: left;">
+        <!-- add smtng here -->
+        <p style="text-align: center;">Hello <%= @garden.user.first_name %>!</p>
+        <br>
+        <% if @garden.bookings.count > 0 %>
+          <% @garden.bookings.count == 1 ? sg_pl = "time" : sg_pl = "times" %>
+          <p>You garden <strong><%= @garden.title %></strong> has been booked <%= @garden.bookings.count %> <%= sg_pl %>!</p>
+        <% end %>
+        <br>
+        <div style="display:flex; justify-content: center; align-items: center;">
+        <% if policy(@garden).edit? %>
+          <p><%= link_to 'Edit', edit_garden_path(@garden), class: "button_outline button_outline-text" %></p>
+        <% end %>
+        <% if policy(@garden).destroy? %>
+          <p><%= link_to "Delete", @garden, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"} %></p>
+        <% end %>
+        </div>
+      </div>
     <% end %>
-
-
- <!--  <%= link_to "All Gardens", gardens_path(@gardens), class: "button button-text" %> -->
+  </div>
 
   <% @garden.bookings.order(created_at: :desc).each do |booking| %>
     <% if booking.review %>
-    <div style="padding-top: 32px">
-      <h3>REVIEWS:</h3>
-      <div class="row">
-        <div class="col-sm-6">
-          <strong><%= booking.review.created_at.to_a[3..5].join(". ") %>, <%= booking.user.first_name %>: </strong>
+      <br>
+      <div class="row box">
+        <div class="col-6">
+          <p style="color: #696969;"><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
           <p><%= booking.review.content %></p>
         </div>
-        <div class="col-sm-6 text-right">
+        <div class="col-6 text-right">
           <p><%= '⭐' * booking.review.rating %></p>
         </div>
       </div>
-    </div>
     <% end %>
   <% end %>
 </div>

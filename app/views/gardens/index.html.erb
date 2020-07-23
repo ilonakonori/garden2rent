@@ -31,12 +31,8 @@
               <h5 style="margin-top: 12px;"><%= link_to garden.title, garden_path(garden) %></h5>
               <p class="card-text"><%= garden.description[0..72] %> ...</p>
               <p class="card-text"><span style="color: black"> €<%= garden.price %> </span> / day</p>
-
-              <!--
-              <#% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
-              <p class="card-text"><%#= garden.avg_rating %> (<%#= garden.reviews.count %> <%#= sg_pl %>)</p>
-              -->
-              <p class="card-text"><%= '⭐' * (3..5).to_a.sample %></p>
+              <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+              <p class="card-text"><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
             </div>
           </div>
         </div>

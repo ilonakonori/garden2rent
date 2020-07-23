@@ -7,6 +7,19 @@
   border: none;
 }
 
+.btn-banner {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #EDB455;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+.btn-banner:hover {
+  background: #edbc6b;
+}
+
 .button:hover {
   background: #EDB455;
   text-decoration: none;
@@ -31,7 +44,7 @@
   border-radius: 4px;
   background: transparent;
   transition: background 0.3s ease;
-  border: 2px solid #FCD490
+  border: 2px solid #FCD490;
 }
 
 .button_outline-text {
