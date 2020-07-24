@@ -6,23 +6,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
+          <!-- dropdown on avatar..but not pretty -->
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+            <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar" %>
+            </a>
+            <ul class="dropdown-menu" style="margin-left:-20px;">
+            <!-- dropdown menu links -->
+              <li class="nav-item active nav-link"><%= link_to "My profile", user_path(current_user) %></li>
+              <li class="nav-item active nav-link"><%= link_to "My messages" %> <!-- build this one --></li>
+              <li class="nav-item active nav-link"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
 
-          <li class="nav-item active nav-link">
-            <%= link_to "My profile", user_path(current_user) %></ <!-- dropdown on avatar-->
-          </li>
-          <li class="nav-item active nav-link">
-            <%= link_to "My messages" %></ <!-- build this one, dropdown on avatar-->
-          </li>
-          <li class="nav-item active nav-link">
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <!-- dropdown on avatar -->
-          </li>
 
-             <li class="nav-item active nav-link">
-
-            <%#= link_to "#" do %>
-              <%= cl_image_tag current_user.photo.key, height: 40, width: 40, crop: :fill, class: "avatar" %> <!-- make user profile page, add user_name and user_photo - avatar -->
-            <%# end %>
-          </li>
         <% else %>
           <li class="nav-item active nav-link">
             <%= link_to "Sign up", new_user_registration_path %>

@@ -1,8 +1,8 @@
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)";>
+  <div class="banner">
     <div class="container-banner text-center">
-      <h1>Rent a <strong> garden </strong> in <strong> Berlin </strong> without the hassle</strong>!</h1>
+      <h1>Rent a garden in Berlin without the hassle!</h1>
       <h2 style="margin-bottom: 3rem;">You do not need to go far to find your perfect garden!</h2>
-      <%= link_to "Book now", gardens_path(@gardens), class: "button button-text" %>
+      <%= link_to "Book now", gardens_path(@gardens), class: "button-text btn-banner" %>
     </div>
   </div>
 
@@ -16,9 +16,9 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to garden.title, garden_path(garden) %></h2>
-            <%#= garden.avg_rating %>
-            <p>Price per day: <%= garden.price %> €</p>
-            <p>⭐⭐⭐⭐⭐</p>
+            <% garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
+            <p><%= garden.avg_rating %> (<%= garden.reviews.count %> <%= sg_pl %>)</p>
+            <p>Price: €<%= garden.price %> / day</p>
           </div>
         </div>
       </div>

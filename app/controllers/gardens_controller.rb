@@ -20,6 +20,10 @@ class GardensController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @booking.garden = @garden
+    @booking.user = current_user
+    authorize @booking
   end
 
   def new
@@ -59,6 +63,10 @@ class GardensController < ApplicationController
     authorize @gardens
   end
 
+  def total_price
+    garden = Garden.find(garden_id)
+    (end_date - start_date).to_i * garden.price
+  end
   private
 
   def garden_params
