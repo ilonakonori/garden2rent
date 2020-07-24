@@ -1,5 +1,7 @@
 <div class="container w-75" >
+  <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
   <h1>My gardens <span class="counter"><%= "(#{@gardens.count})" %></span></h1>
+  <p><%= link_to "Add Garden", new_garden_path, class: "button button-text" %> </p>
   <% if @gardens.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
       <p class="text-secondary"> You still don't have any gardens</p>

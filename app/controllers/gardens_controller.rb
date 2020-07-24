@@ -4,9 +4,17 @@ class GardensController < ApplicationController
 
   def index
     if params[:query].present?
+      @query = params[:query]
       @gardens = policy_scope(Garden).search_by_location(params[:query])
+      @gardens.count == 1 ? sg_pl = "garden" : sg_pl = "gardens"
+      @msg = "We found #{@gardens.count} #{sg_pl} out of #{Garden.count} gardens."
+      if @gardens.empty?
+        @gardens = policy_scope(Garden).order(created_at: :desc)
+        @msg = "Sorry, no results for #{@query.upcase}! But we have #{@gardens.count} gardens, hope you'll find one that satisfied your needs! :)"
+      end
     else
       @gardens = policy_scope(Garden).order(created_at: :desc)
+      @msg = ""
     end
 
     @markers = @gardens.geocoded.map do |garden| # I see map :D

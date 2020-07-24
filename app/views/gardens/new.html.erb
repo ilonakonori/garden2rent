@@ -1,14 +1,13 @@
 <div class="container" style="padding-top: 80px;">
   <div class="container-flat">
-
-<div class="container-form">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2 style="padding: 16px 0; color: #232323;">New Garden</h2>
-      <%= render 'form', garden: @garden %>
+    <div class="container-form">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
+          <h2 style="padding: 16px 0; color: #232323;">New Garden</h2>
+          <%= render 'form', garden: @garden %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-</div>
 </div>
