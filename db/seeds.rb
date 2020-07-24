@@ -14,7 +14,6 @@ Garden.destroy_all
 User.destroy_all
 puts "user + gardens destroyed"
 
-
 puts "starting seed"
 
 #1
@@ -22,10 +21,14 @@ puts "starting seed"
 1.times do
   new_user = User.new(first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    short_bio: "Hey guys! I am a fair and honest person.
+    I like working with people and helping others makes me happy.
+    But, I don't like working the soil...so I'm renting this garden!
+    Have fun with it!",
     email: "garden2rent+1@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://avatars2.githubusercontent.com/u/61380207?v=4")
+    image = URI.open("https://pbs.twimg.com/profile_images/883859744498176000/pjEHfbdn_400x400.jpg")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
@@ -60,9 +63,11 @@ end
 
 #4
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Alexis",
     last_name: Faker::Name.last_name,
-    email: "garden2rent+2@gmail.com",
+    short_bio: "I just finished Le Wagon Web Development Bootcamp and started my own studio.
+    Now I'm working day and night and don't have a time to maintain this garden...",
+    email: "garden2rent+alexis@gmail.com",
     password: "garden2rent")
   puts "user not saved"
     image = URI.open("https://avatars0.githubusercontent.com/u/61702366?v=4")
@@ -94,9 +99,13 @@ end
 
 #7
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Patrik",
     last_name: Faker::Name.last_name,
-    email: "garden2rent+3@gmail.com",
+    email: "garden2rent+patrik@gmail.com",
+    short_bio: "Product manager and fitness coach, somewhere in the intersection of tech, health/fitness and psychology.
+    Atm I'm building little tools myself, working remote for Microsoft as software engineer and doing freelance on the side.
+    After my typical day I feel little bit low in energy and don't have much time to maintain garden.
+    Still, garden is in good shape, I plant flowers at early spring and watering it once a week.",
     password: "garden2rent")
    puts "user not saved"
     image = URI.open("https://avatars2.githubusercontent.com/u/15158574?v=4")
@@ -130,9 +139,12 @@ end
 
 #10
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Ryan",
     last_name: Faker::Name.last_name,
-    email: "garden2rent+4@gmail.com",
+    short_bio: "Currently working for Le Wagon in Berlin as lead teacher and developer.
+    I used to do freelancing on small web dev projects, but I stoped... I really enjoy teaching and love my job,
+    but my students can be really 'needy'. They seek help all the time and I don't have time for anything else.",
+    email: "garden2rent+ryan@gmail.com",
     password: "garden2rent")
   puts "user not saved"
     image = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1569342819/rppyppu4uealcfs4tmmv.jpg")
@@ -166,12 +178,14 @@ end
 
 #13
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Dahlia",
     last_name: Faker::Name.last_name,
+    short_bio: "This hidden gem is our only Garden2Rent. We love this garden and we are happy to have the chance to share this place with others.
+    We also enjoy staying at other gardens when we can. It is such a great way to enjoy a new flowers!",
     email: "garden2rent+5@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://avatars2.githubusercontent.com/u/15158574?v=4")
+    image = URI.open("https://images7.alphacoders.com/408/408351.jpg")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
@@ -205,10 +219,11 @@ end
 1.times do
   new_user = User.new(first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
+    short_bio: "If you need anything we're not far away. But for the most part, we will leave you alone and let you enjoy your visit.",
     email: "garden2rent+6@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://avatars2.githubusercontent.com/u/61380207?v=4")
+    image = URI.open("https://gardeners.s3.amazonaws.com/p/SUBEE33214_3.jpg")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
@@ -239,8 +254,10 @@ end
 
 #19
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Rhett",
     last_name: Faker::Name.last_name,
+    short_bio: "Coming from a finance/banking-background, I took over the operations for Le Wagon in Berlin early 2019.
+    Now updating the definition of education for the German market.",
     email: "garden2rent+7@gmail.com",
     password: "garden2rent")
   puts "user not saved"
@@ -272,8 +289,11 @@ end
 
 #22
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Kitty",
     last_name: Faker::Name.last_name,
+    short_bio: "Hi! We’re Kitty Garden Rental, team of four kitties that helps you rest easy when you rent a private, professionally mowed garden from us.
+    We promise your garden will be green, safe, and true to what you saw on Garden2Rent or we'll make it right.
+    Check-ins are always smooth, and we're here 24/7 to answer any questions or help you find the perfect garden.",
     email: "garden2rent+8@gmail.com",
     password: "garden2rent")
   puts "user not saved"
@@ -305,8 +325,11 @@ end
 
 #25
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Gizmo",
     last_name: Faker::Name.last_name,
+    short_bio: "I have hydrophobia, that means extreme or irrational fear of water.
+    I have no money for gardener, but still need someone for watering this garden.
+    So, I'm renting it for a good price, only condition is that you watering it. ",
     email: "garden2rent+9@gmail.com",
     password: "garden2rent")
   puts "user not saved"
@@ -342,8 +365,10 @@ end
 
 #28
 1.times do
-  new_user = User.new(first_name: Faker::Name.first_name,
+  new_user = User.new(first_name: "Kartoshka",
     last_name: Faker::Name.last_name,
+    short_bio: "Hello soil! It's Kartoshka! I like soil, birds and poetry.
+    I'm nice and friendly person.",
     email: "garden2rent+10@gmail.com",
     password: "garden2rent")
   puts "user not saved"
@@ -380,6 +405,8 @@ end
   1.times do
   new_user = User.new(first_name: "Ilona",
     last_name: Faker::Name.last_name,
+    short_bio: "My Husband and I own this beautiful garden, but unfortunately we don't have a time to maintain it.
+    We both work as a software engineers, and travel a lot. As a matter of fact, we are digital nomads.",
     email: "garden2rent+ilona@gmail.com",
     password: "garden2rent")
   puts "user not saved"

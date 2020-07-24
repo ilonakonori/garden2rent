@@ -14,11 +14,11 @@
         <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-1" %>
 
       </div>
-
-      <% if @gardens.empty? %>
-        <p> Sorry, no gardens! </p> <!-- write some nice msg here -->
-      <% else %>
-
+<!--
+      <#% if @gardens.empty? %>
+        <p> Sorry, no gardens! </p> write some nice msg here
+      <#% else %> -->
+      <p style="padding-bottom: 16px;"><%= @msg %></p>
       <% @gardens.each do |garden| %>
         <div class="card mb-3 card-trip">
           <div class="row">
@@ -37,7 +37,7 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+    <!--<#% end %>-->
   </div>
     <div>
       <div id="map"

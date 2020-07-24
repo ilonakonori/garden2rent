@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :gardens do
     collection do
-      get :profile
+      get :my_gardens
     end
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:index, :show] do
       resources :reviews, only: [:new, :create]
   end
+  resources :users, only: [:show]
 end

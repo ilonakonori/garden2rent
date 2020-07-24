@@ -1,5 +1,5 @@
 <div class="container">
-  <span id="linkback"><%= link_to "Back to garden search", gardens_path(@gardens) %></span>
+  <span id="linkback"><%= link_to "Back to garden search", gardens_path(policy_scope(Garden).order(created_at: :desc)) %></span>
   <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
   <div class="row" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
@@ -9,14 +9,9 @@
     <% end %>
   </div>
 
-  <div class="row box">
+<div class="row box">
     <div class="col-8 card-garden">
-      <% if @garden.user == current_user %>
-        <p>Owner: <%= link_to @garden.user.first_name, profile_gardens_path %></p>
-      <% else %>
-        <p>Owner: <%= @garden.user.first_name %></p>
-      <% end %>
-
+      <p>Owner: <%= link_to @garden.user.first_name, user_path(@garden.user), class: "link-yellow" %></p>
       <p>Location: <%= @garden.location %></p>
       <p><%= @garden.description %></p>
       <p>Price: €<%= @garden.price %> / day</p>

@@ -13,7 +13,7 @@ class GardenPolicy < ApplicationPolicy
     true
   end
 
-  def profile?
+  def my_gardens?
     true
   end
 
