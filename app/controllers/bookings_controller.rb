@@ -11,9 +11,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @booking.garden = @garden
-    @booking.user = current_user
-    authorize @booking
   end
 
   def create
@@ -21,11 +18,11 @@ class BookingsController < ApplicationController
     @booking.garden = @garden
     @booking.user = current_user
     authorize @booking
-
     if @booking.save
       redirect_to bookings_path, notice: "Booking successful, enjoy your garden stay!"
     else
       render 'gardens/show'
+      # errors works ..remote don't :/
     end
   end
 

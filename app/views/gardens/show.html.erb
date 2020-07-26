@@ -18,8 +18,7 @@
       <% if @garden.avg_rating == "" %>
         <!-- display nothing or add smtng -->
       <% else %>
-        <% @garden.reviews.count == 1 ? sg_pl = "review" : sg_pl = "reviews" %>
-        <p><%= @garden.avg_rating %> (<%= @garden.reviews.count %> <%= sg_pl %>)</p>
+        <p class="card-text"><%= @garden.avg_rating %> (<%= pluralize @garden.reviews.count, "review" %>)</p>
       <% end %>
     </div>
 
@@ -31,8 +30,7 @@
         <p style="text-align: center;">Hello <%= @garden.user.first_name %>!</p>
         <br>
         <% if @garden.bookings.count > 0 %>
-          <% @garden.bookings.count == 1 ? sg_pl = "time" : sg_pl = "times" %>
-          <p>You garden <strong><%= @garden.title %></strong> has been booked <%= @garden.bookings.count %> <%= sg_pl %>!</p>
+          <p>You garden <strong><%= @garden.title %></strong> has been booked <%= pluralize @garden.bookings.count, "time" %>!</p>
         <% end %>
         <br>
         <div style="display:flex; justify-content: center; align-items: center;">
@@ -40,7 +38,7 @@
           <p><%= link_to 'Edit', edit_garden_path(@garden), class: "button_outline button_outline-text" %></p>
         <% end %>
         <% if policy(@garden).destroy? %>
-          <p><%= link_to "Delete", @garden, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"} %></p>
+          <p><%= link_to "Delete", @garden, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"}, remote: true %></p>
         <% end %>
         </div>
       </div>
