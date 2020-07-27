@@ -1,16 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_garden, only: [:new, :create]
+  before_action :set_garden, only: :create
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
-  def new
-    @booking = Booking.new
   end
 
   def create

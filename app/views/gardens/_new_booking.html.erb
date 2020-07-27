@@ -1,6 +1,6 @@
  <div class="col-4 form-booking">
       <h4>Pick your dates</h4>
-      <!-- remote don't work :/ -->
+      <!-- remote don't work and redirect to log in :/ -->
       <%= simple_form_for([garden, booking], remote: true) do |f| %>
         <%= f.input :start_date, as: :string, input_html: { class: 'flatpickr' } %>
         <%= f.input :end_date, as: :string, input_html: { class: 'flatpickr' } %>
