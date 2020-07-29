@@ -1,19 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_garden, only: [:new, :create]
+  before_action :set_garden, only: :create
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-  end
-
-  def new
-    @booking = Booking.new
-    @booking.garden = @garden
-    @booking.user = current_user
-    authorize @booking
   end
 
   def create
@@ -21,11 +10,11 @@ class BookingsController < ApplicationController
     @booking.garden = @garden
     @booking.user = current_user
     authorize @booking
-
     if @booking.save
       redirect_to bookings_path, notice: "Booking successful, enjoy your garden stay!"
     else
       render 'gardens/show'
+      # errors works ..remote don't :/
     end
   end
 

@@ -29,9 +29,6 @@ class GardensController < ApplicationController
 
   def show
     @booking = Booking.new
-    @booking.garden = @garden
-    @booking.user = current_user
-    authorize @booking
   end
 
   def new
@@ -63,7 +60,7 @@ class GardensController < ApplicationController
 
   def destroy
     @garden.destroy
-    redirect_to gardens_path, notice: 'Garden was succsesfully removed!'
+    redirect_to my_gardens_gardens_path, notice: 'Garden was succsesfully removed!'
   end
 
   def my_gardens
@@ -75,6 +72,7 @@ class GardensController < ApplicationController
     garden = Garden.find(garden_id)
     (end_date - start_date).to_i * garden.price
   end
+
   private
 
   def garden_params

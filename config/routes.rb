@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     collection do
       get :my_gardens
     end
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: :create
   end
   resources :bookings, only: [:index, :show] do
       resources :reviews, only: [:new, :create]
