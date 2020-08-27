@@ -25,7 +25,7 @@
   <br>
 
   <% if @user != current_user %>
-    <h3>My Gardens (<%= @user.gardens.count %>)</h3>
+    <h3>My Gardens (<%= @user.gardens.load.size %>)</h3>
     <% @user.gardens.each do |garden| %>
       <div class='mt-5'>
         <div class="card-booking d-flex w-100">
@@ -37,7 +37,7 @@
             <p>Address: <%= garden.location %> </p>
             <p>Price: <%= garden.price %> € / day</p>
             <p><%= garden.description[0..110] %> ...</p>
-            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.count, "review" %>)</p>
+            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
           </div>
         </div>
       </div>

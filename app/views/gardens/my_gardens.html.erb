@@ -1,6 +1,6 @@
 <div class="container w-75" >
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
-  <h1>My gardens <span class="counter"><%= "(#{@gardens.count})" %></span></h1>
+  <h1>My gardens <span class="counter"><%= "(#{@gardens.load.size})" %></span></h1>
   <p><%= link_to "Add Garden", new_garden_path, class: "button button-text" %> </p>
   <% if @gardens.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
@@ -22,7 +22,7 @@
             <p>Address: <%= garden.location %> </p>
             <p>Price: <%= garden.price %> €</p>
             <p><%= garden.description[0..110] %> ...</p>
-            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.count, "review" %>)</p>
+            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
           </div>
           <div>
             <div style="display: flex; justify-content: flex-start; padding-top: 16px;">

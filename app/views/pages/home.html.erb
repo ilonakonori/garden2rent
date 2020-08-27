@@ -16,7 +16,7 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= link_to garden.title, garden_path(garden) %></h2>
-            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.count, "review" %>)</p>
+            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
             <p>Price: €<%= garden.price %> / day</p>
           </div>
         </div>
