@@ -32,7 +32,10 @@ import "flatpickr/dist/flatpickr.min.css";
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    initMapbox();
+  }
   // Call your functions here, e.g:
   // initSelect2();
   flatpickr(".flatpickr", {
