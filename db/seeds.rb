@@ -185,7 +185,7 @@ end
     email: "garden2rent+5@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://images7.alphacoders.com/408/408351.jpg")
+    image = URI.open("https://www.gardenia.net/storage/app/public/uploads/images/detail/77536%20Dahlia%20Blue%20BellOptimized.jpg")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
