@@ -1,9 +1,9 @@
-<div class="container w-75" >
-  <span id="linkback"><%= link_to "Back to garden search", gardens_path(policy_scope(Garden).order(created_at: :desc)) %></span>
-  <div class='mt-5'>
+<div class="container w-40">
+  <span id="linkback" style="padding-left: 5px" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></span>
+  <div style ="padding-top:20px">
     <div class="card-booking d-flex w-100">
       <div>
-        <%= cl_image_tag @user.photo.key, height: 300, width: 300, crop: :fill %>
+        <%= cl_image_tag @user.photo.key, height: 350, width: 300, crop: :fill %>
       </div>
       <div class="card-booking-infos d-flex flex-column w-100" style="padding: 32px;">
         <div>

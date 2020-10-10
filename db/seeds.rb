@@ -28,7 +28,7 @@ puts "starting seed"
     email: "garden2rent+1@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://pbs.twimg.com/profile_images/883859744498176000/pjEHfbdn_400x400.jpg")
+    image = URI.open("https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
