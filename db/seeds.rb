@@ -259,7 +259,7 @@ end
     email: "garden2rent+8@gmail.com",
     password: "garden2rent")
   puts "user not saved"
-    image = URI.open("https://static.toiimg.com/photo/msid-67586673/67586673.jpg?resizemode=4&width=400")
+    image = URI.open("https://ichef.bbci.co.uk/news/976/cpsprodpb/41CF/production/_109474861_angrycat-index-getty3-3.jpg")
     new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
     new_user.save!
     puts "added user with photo!"
