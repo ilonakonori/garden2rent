@@ -13,9 +13,48 @@
 
 .nav-item {
   margin: auto;
+  font-size: 16px;
+  color: rgb(32, 32, 32);
+  letter-spacing: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 32px;
+  border-width: 2px;
+  border-radius: 100px;
+  border-style: solid;
+  line-height: 30px;
+  font-weight: bold;
+  height: 36px;
+  margin-left: 23px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(34, 34, 34);
 }
 
 .nav-item .a {
   text-decoration: none;
   background-color: transparent;
+}
+
+.nav-link {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding-right: 25px;
+  padding-left: 25px;
+}
+
+.navbar-light .navbar-nav .nav-link :hover {
+  color: #FCD490;
+}
+
+.search {
+  background-color: rgb(247, 248, 250);
+  border: none;
+  border-radius: 25px;
+  width: 203px;
+  height: 40px;
+  text-indent: 48px;
+  padding: 0px;
 }
