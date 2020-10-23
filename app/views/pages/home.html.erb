@@ -6,18 +6,20 @@
     </div>
   </div>
 
-<div class="container" id="home">
-  <div class='row justify-content-around card-container' style="padding: 40px 72px;">
+<div>
+  <div class='row justify-content-xl-center card-container'>
     <% @gardens.each do |garden| %>
-      <div class="card-trip" style="max-width: 300px;">
-        <%= link_to garden_path(garden) do %>
-          <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
-        <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= link_to garden.title, garden_path(garden) %></h2>
-            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
-            <p>Price: €<%= garden.price %> / day</p>
+    <div style="margin: 34px; padding-left: 12px; border-radius: 8px; width: 385px; height: 320px;">
+        <div class="card-trip" style="width: 390px; height: 350px">
+          <%= link_to garden_path(garden) do %>
+            <%= cl_image_tag garden.photos.first.key, height: 220, width: 390, crop: :fill %>
+          <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= link_to garden.title, garden_path(garden) %></h2>
+              <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
+              <p>Price: €<%= garden.price %> / day</p>
+            </div>
           </div>
         </div>
       </div>

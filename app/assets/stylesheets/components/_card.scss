@@ -24,11 +24,15 @@
 
 
 .card-trip .card-trip-infos {
-  padding: 16px;
-  display: flex;
+  padding: 16px 8px;
+  display: flex-end;
   justify-content: space-around;
   align-items: flex-end;
   position: relative;
+  
+  h2, p {
+    font-size: 18px;
+  }
 }
 
 .card-trip-infos .card-trip-user {
