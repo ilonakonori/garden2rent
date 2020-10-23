@@ -16,6 +16,53 @@ puts "user + gardens destroyed"
 
 puts "starting seed"
 
+# 0
+
+1.times do
+  new_user = User.new(first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    short_bio: "Journalist and travel bug is ready to lift the wings and travel the world.
+    You can follow my story @travelbug2020 or take care of my garden while I am away!",
+    email: "gardenBug2rent+2020@gmail.com",
+    password: "garden2rent")
+  puts "user not saved"
+    image = URI.open("https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80")
+    new_user.photo.attach(io: image, filename: "#{new_user.first_name}_1", content_type: 'image/png')
+    new_user.save!
+    puts "added user with photo!"
+  1.times do
+    new_garden = Garden.new(
+      title: "Cozy garden in the heart of Berlin",
+      description: "
+      The rows of flowers are slightly overgrown, but look otherwise in great shape; they're growing in all sorts and sizes.
+      A well kept patch of grass is bordered by a variety of hedges and bushes. 
+      A greenhouse stands in the back of the garden, offering seating next to exotic plants and flowers. 
+      The rows of flowers are unkempt, but look all the better for it; they're full of hidden potential. 
+      The hedges and bushes reach 1.2m/4ft high, but doesn't usually grow this tall. 
+      A small, picket fence loops around the garden, giving people an elegant way of exploring the garden and all it has to offer. 
+      Vines and grass slightly disrupt the pristine look as they hungrily search for even more pieces of land to expand to.
+      The greenhouse is the pride and joy of the creator of this garden. 
+      The rows of flowers do their best to take some of the attention, and the hedges and bushes are surely a sight to behold, but the eye will just be naturally drawn to the greenhouse..",
+      price: Faker::Number.number(digits: 2),
+      location: "An der Industriebahn 5 Berlin")
+    puts "new garden not saved yet"
+    # photos
+    image1 = URI.open('https://images.unsplash.com/photo-1575963644631-ade305b3771a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
+    new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
+    image2 = URI.open('https://images.unsplash.com/photo-1598075143727-c302a41ed75c?ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80')
+    new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
+    image3 = URI.open('https://images.unsplash.com/photo-1584479898061-15742e14f50d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+    new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
+
+    new_garden.user = new_user
+    new_garden.save!
+
+
+    puts "added 3 images"
+  end
+end
+
+
 #1
 
 1.times do
