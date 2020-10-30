@@ -1,30 +1,30 @@
 <div class="content container">
   <div class='inner-grid'>
     <div>
-      <div class="form-inline" style="margin-bottom: 16px;">
+      <div class="form-inline" style="margin-left: auto;">
         <%= form_tag gardens_path, class: "form-inline", method: :get do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control m-3",
+          class: "form-control m-1",
           placeholder: "Search by location"
           %>
-          <%= submit_tag "Search", class: "button button-text m-1" %>
+          <%= submit_tag "Search", class: "button button-text m-4" %>
         <% end %>
 
-        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-1" %>
+        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-4" %>
 
       </div>
 
-      <p style="padding-bottom: 16px;"><%= @msg %></p>
+      <p style="padding-bottom: 8px;"><%= @msg %></p>
       <% @gardens.each do |garden| %>
         <div class="card mb-3 card-trip">
           <div class="row">
             <div class="col-md-4">
               <%= link_to garden_path(garden) do %>
-                <%= cl_image_tag garden.photos.first.key, height: 184, width: 160, crop: :fill %>
+                <%= cl_image_tag garden.photos.first.key, height: 190, width: 210, crop: :fill %>
               <% end %>
             </div>
-            <div class="col-md-8" style="padding: 12px 24px;">
+            <div class="col-md-8" style="padding: 8px 50px;">
               <h5 style="margin-top: 12px;"><%= link_to garden.title, garden_path(garden) %></h5>
               <p class="card-text"><%= garden.description[0..72] %> ...</p>
               <p class="card-text"><span style="color: black"> €<%= garden.price %> </span> / day</p>
