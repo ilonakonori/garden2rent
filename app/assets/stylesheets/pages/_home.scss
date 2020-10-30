@@ -2,8 +2,8 @@
 // start of navbar
 
 .container {
-  padding-bottom: 96px;
-  padding-top: 88px;
+  padding-bottom: 70px;
+  padding-top: 84px;
 }
 
 #home {
@@ -158,7 +158,7 @@
 // log in form
 
 .box {
-  position: absolute;
+  position: center;
   top: 10%;
   left: 35%;
 }
@@ -176,6 +176,12 @@
   height: 48px;
   text-align: center;
   margin-bottom: 15px;
+}
+
+.button-log:hover {
+  background: #EDB455;
+  text-decoration: none;
+  color: white;
 }
 
 // end of log in form
