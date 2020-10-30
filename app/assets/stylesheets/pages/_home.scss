@@ -101,6 +101,7 @@
 // start of row
 .card-container {
   padding-top: 45px;
+  padding-bottom: 45px;;
 }
 
 .row {
@@ -151,3 +152,37 @@
 }
 
 // end of footer
+
+// end of footer
+
+// log in form
+
+.box {
+  position: center;
+  top: 10%;
+  left: 35%;
+}
+
+.button-log {
+  width: 100%;
+  padding: 5px 24px;
+  margin: 0px;
+  background-color: #FCD490;
+  border-width: 1px;
+  border-color: none;
+  color: rgb(255, 255, 255);
+  border-radius: 28px;
+  border-style: solid;
+  height: 48px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.button-log:hover {
+  background: #EDB455;
+  text-decoration: none;
+  color: white;
+}
+
+// end of log in form
+
