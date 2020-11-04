@@ -93,7 +93,7 @@ footer{
 }
 
 .footer-distributed .footer-center i.fa-envelope{
-	font-size: 12px;
+	font-size: 14px;
 	line-height: 38px;
 }
 
@@ -101,19 +101,23 @@ footer{
 	display: inline-block;
 	color: #ffffff;
 	vertical-align: middle;
-	margin:0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 2;
 }
 
 .footer-distributed .footer-center p span{
 	display:block;
 	font-weight: normal;
-	font-size:14px;
-	line-height:2;
+	font-size: 14px;
+	line-height: 2;
 }
 
 .footer-distributed .footer-center p a{
 	color:  #e0ac1c;
-	text-decoration: none;;
+  text-decoration: none;;
+  font-size: 14px;
+  line-height: 2;
 }
 
 
