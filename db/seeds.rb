@@ -32,7 +32,7 @@ puts "starting seed"
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Cozy garden in the heart of Berlin",
+      title: "Cozy Garden in the Heart of Berlin",
       description: "
       The rows of flowers are slightly overgrown, but look otherwise in great shape; they're growing in all sorts and sizes.
       A well kept patch of grass is bordered by a variety of hedges and bushes. 
@@ -81,7 +81,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Wonderful quite garden, nice neighbors, w pool",
+      title: "Quiet Garden with the Pool and Lovely Neighbors",
       description: "
       The rows of flowers are slightly overgrown, but look otherwise in great shape; they're growing in all sorts and sizes.
       The flower bushes and shrubs reach 1.2m/4ft high, but this about as tall as they'll reach. Here and there lies a small boulder,
@@ -123,7 +123,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Summer paradise for families, pet friendly",
+      title: "Summer Paradise for Families, Pet Friendly",
       description: "A well kept patch of grass is framed by well kept flower bushes and shrubs. A single,
       chunky tree stands in the front right, its trunk and crown cast dancing shadows on the garden below.",
       price: Faker::Number.number(digits: 2),
@@ -161,7 +161,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Berlin's best place for the summer",
+      title: "Berlin's Best Place for Your perfect Summer",
       description: "
       At early spring, we plant various flowers in the garden beds.
       This results to colorful combinations when the flowers flourish. The garden is watered by a small private well.
@@ -200,7 +200,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Make your own botanic garden in Prenzlauer Berg",
+      title: "Make Your Own Botanic Garden in Prenzlauer Berg",
       description: "
       The tree, an ash, has stood there for over a century, and is for all intents and purposes the guardian of this
       garden, and therefore the most appealing part. The rows of flowers do attract some attention, and the flower
@@ -238,7 +238,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Newly seeded garden looking for new owner",
+      title: "Newly Seeded Garden Looking for New Owner",
       description: "
       Leaf loam, rough bark, rich colours, iridescent blues and greens, blade-like leaves,
       clumps of willows, shaggy autumnal trees,
@@ -276,7 +276,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Great for vegetables and sundowners",
+      title: "Great For Vegetables and Sundowners",
       description: "Tangled thickets of thorn, flower beds, dishevelled lawns, tangled hawthorn, summer greenness, knotted boughs, branches drooped dankly.",
       price: Faker::Number.number(digits: 2),
       location: "Grünberger Straße 22 Berlin")
@@ -312,7 +312,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Wonderful quite garden, nice neighbors, w pool",
+      title: "Create Your Own Zen Garden With Preserved Plants",
       description: "The garden stretched up into town, winding like a black river through the bright party towers and houses.",
       price: Faker::Number.number(digits: 2),
       location: "Kielblockstraße 1 Berlin")
@@ -348,7 +348,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Garden with pool, flowerbed and TV",
+      title: "Garden With Pool and Flowerbed, Pet Friendly",
       description: "
       The grass has been mown so short the ground shows through.
       The moss is scuffed, rolling away from the soil like a carpet,
@@ -374,9 +374,9 @@ end
 
 #28
 1.times do
-  new_user = User.new(first_name: "Kartoshka",
+  new_user = User.new(first_name: "Laura",
     last_name: Faker::Name.last_name,
-    short_bio: "Hello soil! It's Kartoshka! I like soil, birds and poetry.
+    short_bio: "Hello soil! It's Laura! I like soil, birds and poetry.
     I'm nice and friendly person.",
     email: "garden2rent+10@gmail.com",
     password: "garden2rent")
@@ -387,7 +387,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Make your own botanic garden in Prenzlauer Berg",
+      title: "Make Your Own Botanic Garden in Prenzlauer Berg",
       description: "
       Among my friends of root and wand, amid each green leaf and delicate petal,
       there are the dancing birds and the squirrels that dart.
@@ -425,7 +425,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Adam und Eva would make out here",
+      title: "Adam und Eva Would Make Out Here",
       description: "
 Right in the center of Berlin, there is this beautiful place which will make you fall in love with life again. You are looking for a place to lie down, put up your feet and call your home away from home? You found your place.
 
@@ -461,7 +461,7 @@ end
 
 #13
 1.times do
-  new_user = User.new(first_name: "Dahlia",
+  new_user = User.new(first_name: "Dalia",
     last_name: Faker::Name.last_name,
     short_bio: "This hidden gem is our only Garden2Rent. We love this garden and we are happy to have the chance to share this place with others.
     We also enjoy staying at other gardens when we can. It is such a great way to enjoy a new flowers!",
@@ -474,7 +474,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Hidden gem, quiet, nice restaurant, mix of shadow and sun",
+      title: "Hidden Gem, Quiet, Nice Restaurant, Mix of Shadow and Sun",
       description: "
       We have a spacious garden dominated by a large pine tree that offers its shadow to our visitors.
       The big table under the pine tree is an ideal place for taking your meals or for relaxed chatting.
