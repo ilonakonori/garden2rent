@@ -11,7 +11,7 @@
           <%= submit_tag "Search", class: "button button-text m-3" %>
         <% end %>
 
-        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-3" %>
+        <%= link_to "All gardens", gardens_path(@gardens), class: "button button-text m-6" %>
 
       </div>
 
@@ -36,7 +36,7 @@
   </div>
     <div>
       <div id="map"
-        style="width: 100%; height: 100vh"
+        style="width: 200%; height: 94%;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
