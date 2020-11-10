@@ -306,7 +306,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Veg Veggie vegetables",
+      title: "Veg Veggie Vegetables",
       description: "We have lots of seeds started under grow lights in our garden. 
       We’ve started all sorts of lettuces, cabbages, and arugula.
       The rest is up to our new garden owner.",
