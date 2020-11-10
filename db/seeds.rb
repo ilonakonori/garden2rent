@@ -34,11 +34,6 @@ puts "starting seed"
     new_garden = Garden.new(
       title: "Cozy Garden in the Heart of Berlin",
       description: "
-      The rows of flowers are slightly overgrown, but look otherwise in great shape; they're growing in all sorts and sizes.
-      A well kept patch of grass is bordered by a variety of hedges and bushes. 
-      A greenhouse stands in the back of the garden, offering seating next to exotic plants and flowers. 
-      The rows of flowers are unkempt, but look all the better for it; they're full of hidden potential. 
-      The hedges and bushes reach 1.2m/4ft high, but doesn't usually grow this tall. 
       A small, picket fence loops around the garden, giving people an elegant way of exploring the garden and all it has to offer. 
       Vines and grass slightly disrupt the pristine look as they hungrily search for even more pieces of land to expand to.
       The greenhouse is the pride and joy of the creator of this garden. 
@@ -51,7 +46,7 @@ puts "starting seed"
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
     image2 = URI.open('https://images.unsplash.com/photo-1598075143727-c302a41ed75c?ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1584479898061-15742e14f50d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1484509025075-64c8133991bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -81,22 +76,21 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Quiet Garden with the Pool and Lovely Neighbors",
+      title: "Arty Garden with Lovely Neighbors",
       description: "
       The rows of flowers are slightly overgrown, but look otherwise in great shape; they're growing in all sorts and sizes.
       The flower bushes and shrubs reach 1.2m/4ft high, but this about as tall as they'll reach. Here and there lies a small boulder,
       offering a glimpse of the best spots. Plants, grass, and roots are sticking to their own domains for now,
-      but are no doubt craving to stretch these boundaries.
-      ",
+      but are no doubt craving to stretch these boundaries.",
       price: Faker::Number.number(digits: 2),
       location: "Kollwitzstraße 25 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1588765865354-f6e9e7cdb3e4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1555585417-3a677e64f183?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1599778150379-8156f5ca50c9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1562864758-143c0cc8b5a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1654&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1587038593017-a47e5114ea7c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2048&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -130,11 +124,11 @@ end
       location: "Charlottenstraße 2 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/flagged/photo-1556255609-fa59ae174716?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1557207562-a3157143784e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1568483718623-f0637238a154?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1536236010565-78fbb2fb25d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1544467168-9cf334a9ce56?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1594633834252-18f92511bd9c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1942&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -161,20 +155,20 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Berlin's Best Place for Your perfect Summer",
+      title: "Sweet Strawberries",
       description: "
       At early spring, we plant various flowers in the garden beds.
-      This results to colorful combinations when the flowers flourish. The garden is watered by a small private well.
-      That way we help to preserve the precious water resources of Sithonia.",
+      This results to colorful combinations when the flowers flourish. The garden has a greenhouse with strawberies.
+      Take care of our garden with love and spoil yourself.",
       price: Faker::Number.number(digits: 2),
       location: "Prenzlauer Allee 165 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1528061019198-c2391f414bec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1591271300850-22d6784e0a7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1463554050456-f2ed7d3fec09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1553481839-a18af44d1355?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1474265648294-a4236906a526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1555767369-2d4bc810901a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -209,11 +203,11 @@ end
       location: "Gleimstraße 20 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1584479898061-15742e14f50d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1598002547032-0c9ae8f3350a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1558717738-12f5dde036a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1595806599278-d99e9c0e49d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1566938081516-c16ca8d5dea6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1593452186132-b3dfae5d4739?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -247,11 +241,11 @@ end
       location: "Am Treptower Park 37 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1530541835461-dedaf9cf368a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1444392061186-9fc38f84f726?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80https://images.unsplash.com/photo-1474265648294-a4236906a526?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1467970767472-2488be1b8362?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=666&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1591857177580-dc82b9ac4e1e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -282,11 +276,11 @@ end
       location: "Grünberger Straße 22 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1524247108137-732e0f642303?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1574804879742-d44d2047f3dc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1591198657081-43b976abe899?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1527863280617-15596f92e5c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1548400659-500be8d0279a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2734&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1566938064504-a379175168b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -298,7 +292,7 @@ end
 
 #22
 1.times do
-  new_user = User.new(first_name: "Kitty",
+  new_user = User.new(first_name: "Tom",
     last_name: Faker::Name.last_name,
     short_bio: "Hi! We’re Kitty Garden Rental, team of four kitties that helps you rest easy when you rent a private, professionally mowed garden from us.
     We promise your garden will be green, safe, and true to what you saw on Garden2Rent or we'll make it right.
@@ -312,17 +306,19 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Create Your Own Zen Garden With Preserved Plants",
-      description: "The garden stretched up into town, winding like a black river through the bright party towers and houses.",
+      title: "Veg Veggie vegetables",
+      description: "We have lots of seeds started under grow lights in our garden. 
+      We’ve started all sorts of lettuces, cabbages, and arugula.
+      The rest is up to our new garden owner.",
       price: Faker::Number.number(digits: 2),
       location: "Kielblockstraße 1 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1558872953-9bd42d7ecc01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1532509774891-141d37f25ae9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1582004198035-a518b96df0f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1951&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1507484467459-0c01be16726e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1581578017306-7334b15283df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1508913826512-066cf8127860?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -334,11 +330,10 @@ end
 
 #25
 1.times do
-  new_user = User.new(first_name: "Gizmo",
+  new_user = User.new(first_name: "Miriam",
     last_name: Faker::Name.last_name,
-    short_bio: "I have hydrophobia, that means extreme or irrational fear of water.
-    I have no money for gardener, but still need someone for watering this garden.
-    So, I'm renting it for a good price, only condition is that you watering it. ",
+    short_bio: "Berliner and movie producer. At the moment working on a new project and most of the time I am not in town.
+    My cats Sibilie and Suzi is an EXTRA when it comes to renting flower garden.",
     email: "garden2rent+9@gmail.com",
     password: "garden2rent")
   puts "user not saved"
@@ -348,7 +343,7 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Garden With Pool and Flowerbed, Pet Friendly",
+      title: "Garden for Flower Lovers Only",
       description: "
       The grass has been mown so short the ground shows through.
       The moss is scuffed, rolling away from the soil like a carpet,
@@ -357,11 +352,11 @@ end
       location: "Oberseestraße 2 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1460533893735-45cea2212645?ixlib=rb-1.2.1&auto=format&fit=crop&w=2300&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1558947624-b460995ab80c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1555897209-d0bf7ab2d02f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1557808051-a7642867211c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1532509774891-141d37f25ae9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1568035620400-0eab9ebe65b0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
 
@@ -387,21 +382,21 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Make Your Own Botanic Garden in Prenzlauer Berg",
+      title: "The Place You Would Never Want to Leave",
       description: "
-      Among my friends of root and wand, amid each green leaf and delicate petal,
-      there are the dancing birds and the squirrels that dart.
-      It is as if the song, the scurries and the subtle movements of flora are their voice,
-      the song of the garden for those who listen with more than their ears.",
+      We have a spacious garden dominated by a large pine tree that offers its shadow to our visitors.
+      The big table under the pine tree is an ideal place for taking your meals or for relaxed chatting.
+      Even in the hottest summer days the shadow of the tree keeps the place cool.
+      There is a barbeque where you may grill fish or meat.",
       price: Faker::Number.number(digits: 2),
       location: "Gleimstraße 20 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1569684605113-e0c30e2a0f4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1523824031433-fe774d7e367b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1566938081516-c16ca8d5dea6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1594196907721-2aa2b0cc95ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1438109382753-8368e7e1e7cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -444,11 +439,11 @@ Ilona and Rudolf",
       location: "Yorckstraße 55 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1568480289558-83c01a7cf56c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
-    image2 = URI.open('https://images.unsplash.com/photo-1585107328143-be98f5f6119b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80')
+    image2 = URI.open('https://images.unsplash.com/photo-1597868067560-1dd6bd103d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1570851325873-733fb2e7b344?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1548&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1588346351168-b3c3950bc951?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
@@ -474,21 +469,21 @@ end
     puts "added user with photo!"
   1.times do
     new_garden = Garden.new(
-      title: "Hidden Gem, Quiet, Nice Restaurant, Mix of Shadow and Sun",
+      title: "Small but Cozy Garden Close to Tempelhofer Feld",
       description: "
-      We have a spacious garden dominated by a large pine tree that offers its shadow to our visitors.
-      The big table under the pine tree is an ideal place for taking your meals or for relaxed chatting.
-      Even in the hottest summer days the shadow of the tree keeps the place cool.
-      At the back yard there is a barbeque where you may grill fish or meat.",
+      Among my friends of root and wand, amid each green leaf and delicate petal,
+      there are the dancing birds and the squirrels that dart.
+      It is as if the song, the scurries and the subtle movements of flora are their voice,
+      the song of the garden for those who listen with more than their ears.",
       price: Faker::Number.number(digits: 2),
       location: "Columbiadamm 23 Berlin")
     puts "new garden not saved yet"
     # photos
-    image1 = URI.open('https://images.unsplash.com/photo-1538307602205-80b5c2ff26ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+    image1 = URI.open('https://images.unsplash.com/photo-1555955207-b96159c16808?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
     image2 = URI.open('https://images.unsplash.com/photo-1569185835836-a9683f3c72a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80')
     new_garden.photos.attach(io: image2, filename: "#{new_garden.location}_2", content_type: 'image/png')
-    image3 = URI.open('https://images.unsplash.com/photo-1555897209-d0bf7ab2d02f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+    image3 = URI.open('https://images.unsplash.com/photo-1489958800330-c8ff77c8457d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1539&q=80')
     new_garden.photos.attach(io: image3, filename: "#{new_garden.location}_3", content_type: 'image/png')
 
     new_garden.user = new_user
