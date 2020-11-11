@@ -1,13 +1,13 @@
-<div class="container w-40">
-  <span id="linkback" style="padding-left: 5px" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></span>
-  <div style ="padding-top:20px">
-    <div class="card-booking d-flex w-100">
-      <div>
-        <%= cl_image_tag @user.photo.key, height: 350, width: 300, crop: :fill %>
+<div class="container w-40" style="height: 73vh;">
+  <span id="linkback" style="padding-left: 5px padding-top: 12px;" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></span>
+  <div style ="padding-top:8px" class="d-flex justify-content-center">
+    <div>
+      <div class="img">
+        <%= cl_image_tag @user.photo.key, height: 320, width: 360, crop: :fill, class: "img" %>
       </div>
-      <div class="card-booking-infos d-flex flex-column w-50" style="padding: 32px;">
-        <div>
-          <h6><%= @user.first_name %> <%= @user.last_name %></h6>
+      <div>
+        <div style="padding-top: 12px;">
+          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <p><%= @user.short_bio %></p>
           <% if @user == current_user %>
             <br>

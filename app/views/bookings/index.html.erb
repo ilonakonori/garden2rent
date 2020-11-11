@@ -1,9 +1,12 @@
-<div class="container w-75" >
+<div class="container w-75" style="height: 73vh;">
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
-  <h1>My bookings <span class="counter"><%= "(#{@bookings.load.size})" %></span></h1>
+  <h1>Review Your Bookings <span class="counter"><%= "(#{@bookings.load.size})" %></span></h1>
   <% if @bookings.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
-      <p class="text-secondary">You made no bookings yet.</p>
+      <div>
+        <p class="text-secondary">You made no bookings yet.</p>
+        <%= link_to "All Gardens", gardens_path(@gardens), class: "button-text button btn-book" %>
+      </div>
     </div>
   <% else %>
 
