@@ -1,4 +1,4 @@
-<div class="content container">
+<div class="content container" style="position: relative;">
   <div class='inner-grid'>
     <div>
       <div class="form-inline" style="margin-left: auto;">
@@ -36,7 +36,7 @@
   </div>
     <div>
       <div id="map"
-        style="width: 200%; height: 94%;"
+        style="width: 132%; height: 94%;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
