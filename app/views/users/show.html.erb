@@ -5,14 +5,14 @@
       <div style="display: block;">
         <%= cl_image_tag @user.photo.key, height: 225, width: 235, crop: :fill, class: "img" %>
       </div>
-        <div style="text-align: center; padding-top: 12px; font-size: 18px; padding-left: 20px; ">
+        <div style="text-align: center; padding-top: 12px; font-size: 18px; ">
           <%= link_to "Edit profile", edit_user_registration_path %>
         </div>
       <div>
-        <div style="padding-top: 16px; text-align: center; padding-left: 20px;">
+        <div style="padding-top: 16px; text-align: center;">
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <br>
-          <div style="padding-top: 16px; text-align: center; padding-left: 20px;">
+          <div style="padding-top: 16px; text-align: center;">
             <p><%= @user.short_bio %></p>
           </div>
           <br>
