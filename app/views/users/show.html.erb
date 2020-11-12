@@ -1,8 +1,8 @@
-<div class="container w-40" style="height: 100vh;">
+<div class="container" style="height: 100vh;">
   <span id="linkback" style="padding-left: 5px padding-top: 12px; font-size: 18px;" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></span>
-  <div style="padding-top: 8px;" class="d-flex justify-content-around;">
+  <div style="padding-top: 8px; " class="d-flex justify-content-around;">
     <div>
-      <div style="display: block;">
+      <div>
         <%= cl_image_tag @user.photo.key, height: 225, width: 235, crop: :fill, class: "img" %>
       </div>
         <div style="text-align: center; padding-top: 12px; font-size: 18px; ">
@@ -12,13 +12,13 @@
         <div style="padding-top: 16px; text-align: center;">
           <h2><%= @user.first_name %> <%= @user.last_name %></h2>
           <br>
-          <div style="padding-top: 16px; text-align: center;">
+          <div style="padding-top: 16px; text-align: center; margin-left: 25%; width: 50%;">
             <p><%= @user.short_bio %></p>
           </div>
           <br>
           <% if @user == current_user %>
             <br>
-            <div  class="d-flex justify-content-between padding-top: 8px;">
+            <div  class="d-flex justify-content-center padding-top: 8px;">
               <%= link_to "My Gardens", my_gardens_gardens_path, class: "button-text button" %>
               <%= link_to "My Bookings", bookings_path, class: "button-text button" %>
             </div>
@@ -34,7 +34,7 @@
   <% if @user != current_user %>
     <h3>My Gardens (<%= @user.gardens.load.size %>)</h3>
     <% @user.gardens.each do |garden| %>
-      <div class='mt-5'>
+      <div class='mt-3'>
         <div class="card-booking d-flex w-100">
           <div>
             <%= cl_image_tag garden.photos.first.key, height: 200, width: 300, crop: :fill %>
