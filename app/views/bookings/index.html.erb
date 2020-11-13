@@ -1,4 +1,4 @@
-<div class="container w-75" style="position: relative;">
+<div class="container w-75">
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
   <h1>Review Your Bookings <span class="counter"><%= "(#{@bookings.load.size})" %></span></h1>
   <% if @bookings.empty? %>
