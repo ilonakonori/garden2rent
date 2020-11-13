@@ -1,4 +1,4 @@
-<div class="container w-75" style="height: 73vh;" >
+<div class="container w-75">
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
   <h1>My gardens <span class="counter"><%= "(#{@gardens.load.size})" %></span></h1>
   <p><%= link_to "Add Garden", new_garden_path, class: "button button-text" %> </p>

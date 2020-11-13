@@ -1,5 +1,9 @@
-footer{
+footer {
+  position: absolute;
   bottom: 0;
+  height: 16.5rem;
+  background-color: #475762;
+  width: 100%;
 }
 
 @media (max-height:800px){
@@ -20,14 +24,14 @@ footer{
 
 .footer-distributed .footer-left,
 .footer-distributed .footer-center,
-.footer-distributed .footer-right{
+.footer-distributed .footer-right {
 	display: inline-block;
 	vertical-align: top;
 }
 
 /* Footer left */
 
-.footer-distributed .footer-left{
+.footer-distributed .footer-left {
 	width: 30%;
 }
 

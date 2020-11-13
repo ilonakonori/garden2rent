@@ -12,13 +12,18 @@
   </head>
 
   <body>
-    <%= render "shared/nav" %>
+    <div id="page-container" style="position: relative; min-height: 100vh;">
+      <div id="content-wrap" style="padding-bottom: 2.5rem;">
+        <%= render "shared/nav" %>
 
-    <% if flash[:notice] %>
-      <p class="alert alert-warning"><%= notice %></p>
-    <% end %>
+        <% if flash[:notice] %>
+          <p class="alert alert-warning"><%= notice %></p>
+        <% end %>
 
-    <%= yield %>
+        <%= yield %>
+      </div>
+
+      <%= render "shared/footer" %>
+    </div>
   </body>
-    <%= render "shared/footer" %>
 </html>
