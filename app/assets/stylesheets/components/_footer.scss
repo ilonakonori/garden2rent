@@ -1,7 +1,6 @@
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  height: 16.5rem;
   background-color: #475762;
   width: 100%;
 }
@@ -18,8 +17,7 @@ footer {
 	width: 100%;
 	text-align: left;
   font: bold 3px sans-serif;
-  padding: 14px;
-	margin-top: 30px;
+  padding: 18px;
 }
 
 .footer-distributed .footer-left,
@@ -32,19 +30,14 @@ footer {
 /* Footer left */
 
 .footer-distributed .footer-left {
-	width: 30%;
+	width: 25%;
+	margin-left: 80px;;
 }
 
 .footer-distributed h3{
 	color:  #ffffff;
 	font: normal 18px 'Cookie', cursive;
 	margin: 0;
-}
-
-/* The company logo */
-
-.footer-distributed .footer-left img{
-	width: 30%;
 }
 
 .footer-distributed h3 span{
