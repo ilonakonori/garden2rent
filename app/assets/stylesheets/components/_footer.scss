@@ -17,7 +17,7 @@ footer {
 	width: 100%;
 	text-align: left;
   font: bold 3px sans-serif;
-  padding: 14px;
+  padding: 18px;
 }
 
 .footer-distributed .footer-left,
@@ -30,19 +30,14 @@ footer {
 /* Footer left */
 
 .footer-distributed .footer-left {
-	width: 30%;
+	width: 25%;
+	margin-left: 82px;;
 }
 
 .footer-distributed h3{
 	color:  #ffffff;
 	font: normal 18px 'Cookie', cursive;
 	margin: 0;
-}
-
-/* The company logo */
-
-.footer-distributed .footer-left img{
-	width: 30%;
 }
 
 .footer-distributed h3 span{
