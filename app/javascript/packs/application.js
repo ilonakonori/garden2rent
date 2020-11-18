@@ -39,6 +39,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   flatpickr(".flatpickr", {
-    minDate: "today",
+    minDate: new Date().fp_incr(1)
   })
 });
