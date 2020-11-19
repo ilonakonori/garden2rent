@@ -29,7 +29,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'pundit'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
-gem 'turbolinks_render'
+# gem 'turbolinks_render'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
