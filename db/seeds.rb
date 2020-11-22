@@ -41,7 +41,7 @@ puts "starting seed"
       price: Faker::Number.number(digits: 2),
       location: "An der Industriebahn 5 Berlin")
     puts "new garden not saved yet"
-    # photos
+    # photos 
     image1 = URI.open('https://images.unsplash.com/photo-1575963644631-ade305b3771a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')
     new_garden.photos.attach(io: image1, filename: "#{new_garden.location}_1", content_type: 'image/png')
     image2 = URI.open('https://images.unsplash.com/photo-1598075143727-c302a41ed75c?ixlib=rb-1.2.1&auto=format&fit=crop&w=975&q=80')
