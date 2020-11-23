@@ -76,10 +76,7 @@
 
 // start of banner
 .banner {
-  background-size: cover;
-  background-position: center;
-  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('banner.png');
-  padding: 120px;
+  height: 65vh;
 }
 
 .banner h1 {
