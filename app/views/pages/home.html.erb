@@ -42,7 +42,7 @@
             <div style="margin: 4px;">
               <h2><%= link_to garden.title, garden_path(garden) %></h2>
               <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
-              
+              <br>
               <p>Price: €<%= garden.price %> / day</p>
             </div>
           </div>
