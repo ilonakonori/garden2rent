@@ -1,71 +1,43 @@
 <div class="container">
   <span id="linkback" style="padding-left: 5px padding-top: 12px; font-size: 18px;" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></span>
-  <div style="padding-top: 8px; " class="d-flex justify-content-around">
-    <div>
-      <div class="d-flex justify-content-center">
-        <%= cl_image_tag @user.photo.key, height: 225, width: 235, crop: :fill, class: "img" %>
-      </div>
+  <div style="padding-top: 8px; display: inline-flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+    <div class="col">
+      <%= cl_image_tag @user.photo.key, height: 225, width: 235, crop: :fill, class: "img" %>
       <% if @user == current_user %>
         <div style="text-align: center; padding-top: 12px; font-size: 18px; ">
           <%= link_to "Edit profile", edit_user_registration_path %>
         </div>
       <% end %>
-      <div style="padding-top: 18px; text-align: center;">
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <br>
-        <div style="text-align: center; margin-left: 25%; width: 50%;">
-          <p><%= @user.short_bio %></p>
-        </div>
-        <br>
-        <% if @user == current_user %>
-          <div class="d-flex justify-content-center">
-            <%= link_to "My Gardens", my_gardens_gardens_path, class: "button-text button cur_u" %>
-            <%= link_to "My Bookings", bookings_path, class: "button-text button cur_u" %>
-          </div>
-        <% else %>
-        <!-- add here 'send msg / contact user..' -->
-        <% if @user.gardens %>
-          <% @user.gardens.size > 1 ? msg = "Gardens (#{@user.gardens.size})" : msg = "Garden" %>
-          <div class="d-flex justify-content-center">
-            <h3>My <%= msg %></h3>
-          </div>
-          <% @user.gardens.each do |garden| %>
-            <div class='d-flex justify-content-center mt-3'>
-              <div class="card card-booking d-flex" style="width: 461px; border-radius: 8px; ">
-                <div class="card-img-top">
-                  <%= cl_image_tag garden.photos.first.key, height: 300, width: 460, crop: :fill %>
-                </div>
-                <div class="card-body card-booking-infos d-flex flex-column w-100 ">
-                  <h3><%= link_to garden.title, garden_path(garden) %></h3>
-                  <p>Address: <%= garden.location %> </p>
-                  <p>Price: <%= garden.price %> € / day</p>
-                  <p><%= garden.description[0..110] %> ...</p>
-                  <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-          <% else %>
-            <!-- msg: user doesn't have gardens..-->
-          <% end %>
-        <% end %>
+      <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+      <br>
+      <div style="width: 50%;">
+        <p><%= @user.short_bio %></p>
       </div>
+      <br>
+      <% if @user == current_user %>
+        <div class="d-flex justify-content-center">
+          <%= link_to "My Gardens", my_gardens_gardens_path, class: "button-text button cur_u" %>
+          <%= link_to "My Bookings", bookings_path, class: "button-text button cur_u" %>
+        </div>
+      <% end %>
     </div>
+    <% if @user != current_user %>
+      <% @user.gardens.each do |garden| %>
+        <div class="col">
+          <div class="card card-booking d-flex" style="width: 461px; border-radius: 8px; ">
+            <div class="card-img-top">
+              <%= cl_image_tag garden.photos.first.key, height: 300, width: 460, crop: :fill %>
+            </div>
+            <div class="card-body card-booking-infos d-flex flex-column w-100 ">
+              <h3><%= link_to garden.title, garden_path(garden) %></h3>
+              <p>Address: <%= garden.location %> </p>
+              <p>Price: <%= garden.price %> € / day</p>
+              <p><%= garden.description[0..110] %> ...</p>
+              <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-
-<!--
-  <#% if @user != current_user %>
-    <#% if @user.gardens %>
-      <#% @user.gardens.size > 1 ? msg = 'Gardens' : msg = 'Garden' %>
-      <#% btn_txt = "#{@user.first_name}'s #{msg}" %>
-      <div class="d-flex justify-content-center">
-        <#%= link_to btn_txt, gardens_path(@user.gardens), class: "button-text button" %> < build this path
-      </div>
-
-      <#% else %>
-      display some msg: user doesn't have gardens..
-
-    <#% end %>
-  <#% end %>
--->
