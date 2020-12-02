@@ -1,14 +1,29 @@
 <div class="container">
   <div id="linkback" style="margin: 12px; font-size: 16px;" ><%= link_to "Back to Search", gardens_path(policy_scope(Garden).order(created_at: :desc))%></div>
   <!-- Ilona have a fun! :) -->
+ <% if @user == current_user %>
+  <div class="" style="text-align: center; padding-top: 48px;">
+    <div class="col">
+      <%= cl_image_tag @user.photo.key, height: 215, width: 225, crop: :fill, class: "img", style: "" %>
+        <div style="text-align: center; padding-top: 18px; font-size: 18px; ">
+          <%= link_to "Edit profile", edit_user_registration_path %>
+        </div>
+      <br>
+      <br>
+      <h2 style=""><%= @user.first_name %> <%= @user.last_name %></h2>
+      <br>
+      <p style="padding: 0 16vw;"><%= @user.short_bio %></p>
+      <br>
+        <div class="d-flex justify-content-center">
+          <%= link_to "My Gardens", my_gardens_gardens_path, class: "button-text button cur_u" %>
+          <%= link_to "My Bookings", bookings_path, class: "button-text button cur_u" %>
+        </div>
+    </div>
+  </div>
+<% else %>
   <div class="box" style="display: inline-flex; padding: 34px; margin: auto;">
     <div class="col align-self-center">
       <%= cl_image_tag @user.photo.key, height: 265, width: 275, crop: :fill, class: "img", style: "margin-left: 50px;"%>
-      <% if @user == current_user %>
-        <div style="text-align: center; padding-top: 18px; font-size: 16px; ">
-          <%= link_to "Edit profile", edit_user_registration_path %>
-        </div>
-      <% end %>
       <br>
       <br>
       <div class="border" style="width: 80%; background-color: #fff; color: #353535; border-radius: 8px; padding: 8px;">
@@ -18,14 +33,7 @@
         </div>
       </div>
       <br>
-      <% if @user == current_user %>
-        <div class="d-flex justify-content-center">
-          <%= link_to "My Gardens", my_gardens_gardens_path, class: "button-text button cur_u" %>
-          <%= link_to "My Bookings", bookings_path, class: "button-text button cur_u" %>
-        </div>
-      <% end %>
     </div>
-    <% if @user != current_user %>
       <% @user.gardens.each do |garden| %>
         <div class="col">
           <div class="card card-booking d-flex" style="width: 461px; border-radius: 8px; ">
@@ -42,6 +50,6 @@
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
