@@ -41,7 +41,7 @@
               <%= cl_image_tag garden.photos.first.key, height: 300, width: 460, crop: :fill %>
             </div>
             <div class="card-body card-booking-infos d-flex flex-column w-100 ">
-              <h3><%= link_to garden.title, garden_path(garden) %></h3>
+              <h3><%= link_to garden.title, garden_path(garden.title) %></h3>
               <p>Address: <%= garden.location %> </p>
               <p>Price: <%= garden.price %> € / day</p>
               <p><%= garden.description[0..110] %> ...</p>

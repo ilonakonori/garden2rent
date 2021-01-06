@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home' #/:Small but Cozy Garden Close to Tempelhofer Feld'
 
-  #resources :gardens, only: :show, param: :name
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #resources :gardens, only: :show, param: :title
+
   resources :gardens do
     collection do
       get :my_gardens
