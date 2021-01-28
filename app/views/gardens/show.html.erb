@@ -51,12 +51,14 @@
       <div class="row box">
         <div class="col-6" style="font-size: 18px;">
           <p style="color: #696969;"><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
-          <p><%= booking.review.content %></p>
-        </div>
-        <div class="col-6 text-right">
-          <p><%= '★' * booking.review.rating %>  <i class="far fa-thumbs-up"></i></p>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+            <div>
+              <p><%= booking.review.content %></p>
+            </div>
+          </div>
+         <div class="col-6 text-right">
+            <p><%= '★' * booking.review.rating %>  <i class="far fa-thumbs-up"></i></p>
+         </div>
+       </div>
+     <% end %>
+   <% end %>
 </div>
