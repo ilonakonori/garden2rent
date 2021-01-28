@@ -17,6 +17,6 @@ class Garden < ApplicationRecord
     }
 
   def avg_rating
-    reviews.empty? ? '' : '⭐' * reviews.average(:rating).round
+    reviews.empty? ? '' : '★' * reviews.average(:rating).round
   end
 end
