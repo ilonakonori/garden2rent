@@ -51,6 +51,27 @@
       <div class="row box">
         <div class="col-6" style="font-size: 18px;">
           <p style="color: #696969;"><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
+
+<!-- here is my part -->
+          <p><%= booking.review.content %></p>
+        </div>
+        <div class="col-6 text-right">
+          <p><%= '⭐' * booking.review.rating %></p>
+        </div>
+
+        <!-- edit and destroy review -->
+        <% if policy(booking.review).edit? %>
+          <p><%= link_to 'Edit', edit_review_path(booking.review.id), class: "button_outline button_outline-text" %></p>
+        <% end %>
+        <% if policy(booking.review).destroy? %>
+          <p><%= link_to "Delete", booking.review, class: "button_outline button_outline-text", method: :delete, data: {confirm: "Are you sure?"}, remote: true %></p>
+        <% end %>
+
+      </div>
+    <% end %>
+  <% end %>
+<!-- here my part ends, bellow is yours -->
+
             <div>
               <p><%= booking.review.content %></p>
             </div>
@@ -61,4 +82,6 @@
        </div>
      <% end %>
    <% end %>
+<!-- here your ends -->
+
 </div>

@@ -13,6 +13,14 @@ class ReviewPolicy < ApplicationPolicy
     user_is_booker?
   end
 
+   def update?
+    user_is_booker?
+  end
+
+  def destroy?
+    user_is_booker?
+  end
+
   private
 
   def user_is_booker?

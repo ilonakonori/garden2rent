@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_review, only: [:edit, :update, :destroy]
   def new
     @review = Review.new
     @booking = Booking.find(params[:booking_id])
@@ -18,7 +19,30 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @review.update(review_params)
+    authorize @review
+    if @review.save
+      redirect_to bookings_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to bookings_path, notice: 'Review was succsesfully removed!'
+  end
+
   private
+
+  def set_review
+    @review = Review.find(params[:id])
+    authorize @review
+  end
 
   def review_params
     params.require(:review).permit(:rating, :content)
