@@ -18,7 +18,7 @@
       <% if @garden.avg_rating == "" %>
         <!-- display nothing or add smtng -->
       <% else %>
-        <p class="card-text"><%= @garden.avg_rating %> (<%= pluralize @garden.reviews.size, "review" %>)</p>
+        <p class="card-text" style="font-size: 18px;"><%= @garden.avg_rating %> (<%= pluralize @garden.reviews.size, "review" %>)</p>
       <% end %>
     </div>
 
@@ -49,8 +49,10 @@
     <% if booking.review %>
       <br>
       <div class="row box">
-        <div class="col-6">
+        <div class="col-6" style="font-size: 18px;">
           <p style="color: #696969;"><%= "#{booking.review.created_at.strftime("%-d. %B, %Y")}" %>, <%= booking.user.first_name %>: </strong>
+
+<!-- here is my part -->
           <p><%= booking.review.content %></p>
         </div>
         <div class="col-6 text-right">
@@ -68,4 +70,18 @@
       </div>
     <% end %>
   <% end %>
+<!-- here my part ends, bellow is yours -->
+
+            <div>
+              <p><%= booking.review.content %></p>
+            </div>
+          </div>
+         <div class="col-6 text-right">
+            <p><%= '★' * booking.review.rating %>  <i class="far fa-thumbs-up"></i></p>
+         </div>
+       </div>
+     <% end %>
+   <% end %>
+<!-- here your ends -->
+
 </div>
