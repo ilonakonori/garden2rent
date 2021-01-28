@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show, param: :first_name
   #get 'users/:first_name', :to => 'users#show'
+  resources :reviews, only: [:edit, :update, :destroy]
 end

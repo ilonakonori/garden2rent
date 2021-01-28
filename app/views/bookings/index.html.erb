@@ -1,5 +1,5 @@
 <div class="container w-75">
-  <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
+  <span id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></span>
   <h1>Review Your Bookings <span class="counter"><%= "(#{@bookings.load.size})" %></span></h1>
   <% if @bookings.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
@@ -35,6 +35,13 @@
               <span class="review">Your review</span>
               <p><%= '⭐' * booking.review.rating %></p>
               <p id="fuckopacity"><%= booking.review.content %></p>
+
+              <!-- update & destroy reviews -->
+              <div class="d-flex justify-content">
+                <%= link_to 'Edit', edit_review_path(booking.review.id), class: "button", style: 'margin: 8px;' %>
+                <%= link_to "Delete", booking.review, class: "button", style: 'margin: 8px;', method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+              </div>
+
             <% end %>
           </div>
         </div>

@@ -1,9 +1,8 @@
 <div class="container w-75">
-
-      <div class="row justify-content-start">
-        <div class="col-7">
-          <span id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></span>
-          <%= render 'form', garden: @garden %>
-        </div>
-      </div>
+  <div class="row justify-content-start">
+    <div class="col-7">
+      <span id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></span>
+      <%= render 'form', garden: @garden %>
+     </div>
+  </div>
 </div>
