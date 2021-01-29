@@ -24,7 +24,6 @@ class ReviewsController < ApplicationController
 
   def update
     @review.update(review_params)
-    authorize @review
     if @review.save
       redirect_to bookings_path
     else
@@ -34,7 +33,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review.destroy
-    redirect_to bookings_path, notice: 'Review was succsesfully removed!'
+    flash[:notice] = 'Review was succsesfully removed!'
+    redirect_back(fallback_location: 'pages#home')
   end
 
   private
