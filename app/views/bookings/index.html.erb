@@ -21,10 +21,10 @@
 
         <div class="card-booking-infos d-flex flex-column w-100 ">
           <div>
-            <h3><%= link_to booking.garden.title, garden_path(booking.garden) %></h3>
-            <p><%= booking.garden.location %></p>
-            <p> <%= "#{booking.start_date.strftime("%-d. %B, %Y")} - #{booking.end_date.strftime("%-d. %B, %Y")}" %></p>
-            <p><%= booking.total_price %> €</p>
+            <h3 style ="padding-left: 8px;"><%= link_to booking.garden.title, garden_path(booking.garden) %></h3>
+            <p style ="padding-left: 8px;" ><%= booking.garden.location %></p>
+            <p style ="padding-left: 8px;"> <%= "#{booking.start_date.strftime("%-d. %B, %Y")} - #{booking.end_date.strftime("%-d. %B, %Y")}" %></p>
+            <p style ="padding-left: 8px;"><%= booking.total_price %> €</p>
           </div>
           <div>
             <% if booking.review.nil? %>
@@ -33,16 +33,11 @@
               <% end %>
             <% else %>
               <br>
-              <h6>You reviewed <%= link_to booking.garden.title, garden_path(booking.garden) %>.</h6>
-              <p style="font-size: 18px;"><%= '★' * booking.review.rating %> <%= booking.review.content %></p>
-
-
-              <!-- update & destroy reviews -->
-              <div class="d-flex justify-content">
+              <h6 style ="padding-left: 8px;">You reviewed <%= link_to booking.garden.title, garden_path(booking.garden) %>.</h6>
+              <p style="font-size: 18px; padding-left: 8px;"><%= '★' * booking.review.rating %> <%= booking.review.content %></p>
+              <br>
                 <%= link_to 'Edit', edit_review_path(booking.review.id), class: "button", style: 'margin: 8px;' %>
                 <%= link_to "Delete", booking.review, class: "button", style: 'margin: 8px;', method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
-              </div>
-
             <% end %>
           </div>
         </div>
