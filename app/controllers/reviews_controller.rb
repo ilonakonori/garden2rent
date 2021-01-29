@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
-  respond_to :html, :js
   def new
     @review = Review.new
     @booking = Booking.find(params[:booking_id])
@@ -25,7 +24,6 @@ class ReviewsController < ApplicationController
 
   def update
     @review.update(review_params)
-    authorize @review
     if @review.save
       redirect_to bookings_path
     else
