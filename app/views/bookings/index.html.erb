@@ -32,9 +32,10 @@
                 <%= link_to 'Leave a review', new_booking_review_path(booking), class: "button" %>
               <% end %>
             <% else %>
-              <span class="review">Your review</span>
-              <p><%= '⭐' * booking.review.rating %></p>
-              <p id="fuckopacity"><%= booking.review.content %></p>
+              <br>
+              <h6>You reviewed <%= link_to booking.garden.title, garden_path(booking.garden) %>.</h6>
+              <p style="font-size: 18px;"><%= '★' * booking.review.rating %> <%= booking.review.content %></p>
+
 
               <!-- update & destroy reviews -->
               <div class="d-flex justify-content">
