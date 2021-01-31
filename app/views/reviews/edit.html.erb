@@ -1,5 +1,12 @@
-<div class="container w-75">
-  <span id="linkback"><%= link_to "Go back", bookings_path %></span>
-  <h1>Edit your review</h1>
-  <%= render 'form', review: @review, booking: @booking %>
+<div class="container">
+  <p id="linkback"><%= link_to "Go back", bookings_path %></p>
+    <br>
+    <div class="row box">
+      <div class="col-12">
+        <h2>Edit your review:</h2>
+        <br>
+        <%= render 'form', review: @review, booking: @booking %>
+        <br>
+      </div>
+    </div>
 </div>

@@ -4,7 +4,7 @@
   <div class="row" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
       <div class="col-4">
-        <%= cl_image_tag photo.key, height: 300, width: 340, crop: :fill %>
+        <%= cl_image_tag photo.key, height: 320, width: 340, crop: :fill %>
       </div>
     <% end %>
   </div>
