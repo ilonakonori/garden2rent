@@ -1,12 +1,11 @@
 <div class="container w-75">
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></span>
-  <h1>My gardens <span class="counter"><%= "(#{@gardens.load.size})" %></span></h1>
-  <p><%= link_to "Add Garden", new_garden_path, class: "button button-text" %> </p>
+  <br>
   <% if @gardens.empty? %>
     <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
       <p class="text-secondary"> You still don't have any gardens</p>
   <% else %>
-
+  
   <div class='mt-5'>
     <% @gardens.each do |garden| %>
       <div class="card-booking d-flex w-100">
@@ -37,6 +36,9 @@
         </div>
       </div>
     <% end %>
+    <div>
+      <p><%= link_to "Add Garden", new_garden_path, class: "button" %> </p>
+    </div>
   </div>
   <% end %>
 </div>
