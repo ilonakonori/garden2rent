@@ -1,10 +1,10 @@
 <div class="container w-75">
   <p id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></p>
   <% if @bookings.empty? %>
-    <div class="d-flex align-items-center justify-content-center pt-5 mt-5">
+    <div class="d-flex align-items-center justify-content-center">
       <div>
         <p class="text-secondary">You made no bookings yet.</p>
-        <%= link_to "All Gardens", gardens_path(@gardens), class: "button-text button btn-book" %>
+        <p style="padding-left: 27px;"><%= link_to "All Gardens", gardens_path(@gardens), class: "button" %><p>
       </div>
     </div>
   <% else %>
