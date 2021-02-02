@@ -7,9 +7,9 @@
         <%= f.input :price %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <% if garden.persisted? %>
-          <%= f.submit value="Save", class: "button button-text" %>
+          <%= f.submit value="Save", class: "button" %>
         <% else %>
-          <%= f.submit value="Add", class: "button button-text" %>
+          <%= f.submit value="Add", class: "button" %>
         <% end %>
       <% end %>
     </div>
