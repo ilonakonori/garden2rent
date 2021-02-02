@@ -11,19 +11,19 @@
       <div class="card-booking d-flex w-100">
         <div>
            <%= link_to garden_path(garden) do %>
-            <%= cl_image_tag garden.photos.first.key, height: 180, width: 250, crop: :fill %>
+            <%= cl_image_tag garden.photos.first.key, height: 310, width: 280, crop: :fill %>
           <% end %>
         </div>
 
         <div class="card-booking-infos d-flex flex-column w-100 ">
-          <div>
+          <div style="padding-left: 8px;">
             <h3><%= link_to garden.title, garden_path(garden) %></h3>
             <p>Address: <%= garden.location %> </p>
             <p>Price: <%= garden.price %> €</p>
             <p><%= garden.description[0..110] %> ...</p>
-            <p class="card-text"><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
-          </div>
-          <div>
+            <br>
+            <p><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
+            <br>
             <div style="display: flex; justify-content: flex-start; padding-top: 16px;">
               <% if policy(garden).edit? %>
                 <h6><%= link_to 'Edit', edit_garden_path(garden), class: "button mr-3" %></h6>
