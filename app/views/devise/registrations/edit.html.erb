@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
       <div class="col-6 box" style="justify-content-center; padding: 42px; margin-top: 40px;">
-          <span id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></span>
+          <p id="linkback"><%= link_to "Go back to profile", user_path(current_user) %></p>
           <h2>Edit your profile <%#= resource_name.to_s.humanize %></h2>
 
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
