@@ -9,12 +9,12 @@
     </div>
   <% else %>
 
-  <div class='mt-5'>
+  <div class='mt-4'>
     <% @bookings.each do |booking| %>
       <div class="card-booking d-flex w-100">
         <div>
           <%= link_to garden_path(booking.garden) do %>
-          <%= cl_image_tag booking.garden.photos.first.key, height: 310, width: 280, crop: :fill %>
+          <%= cl_image_tag booking.garden.photos.first.key, height: 280, width: 280, crop: :fill %>
           <% end %>
         </div>
 
