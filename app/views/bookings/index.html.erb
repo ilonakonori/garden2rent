@@ -31,9 +31,8 @@
                 <%= link_to 'Leave a review', new_booking_review_path(booking), class: "button" %>
               <% end %>
             <% else %>
-              <br>
               <h6 style ="padding-left: 8px;">You reviewed <%= link_to booking.garden.title, garden_path(booking.garden) %>.</h6>
-              <p style="font-size: 18px; padding-left: 8px;"><%= '★' * booking.review.rating %> <%= booking.review.content %></p>
+              <p style="padding-left: 8px;"><%= '★' * booking.review.rating %> <%= booking.review.content[0...100] %>...</p>
               <br>
                 <%= link_to 'Edit', edit_review_path(booking.review.id), class: "button", style: 'margin: 8px;' %>
                 <%= link_to "Delete", booking.review, class: "button", style: 'margin: 8px;', method: :delete, data: {confirm: "Are you sure?"}, remote: true %>

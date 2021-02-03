@@ -21,9 +21,9 @@
           <div style="padding-left: 8px;">
             <h3><%= link_to garden.title, garden_path(garden) %></h3>
             <p><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
+            <p>Price: <%= garden.price %> €</p>
             <br>
             <p>Address: <%= garden.location %> </p>
-            <p>Price: <%= garden.price %> €</p>
             <p><%= garden.description[0..900] %> ...</p>
             <br>
             <div style="display: flex; justify-content: flex-start; padding-top: 8px;">
