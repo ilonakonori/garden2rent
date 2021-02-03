@@ -1,4 +1,6 @@
-<div class="container w-75">
+<div class="container">
+    <div class="col-12">
+
   <span id="linkback"><%= link_to "Go back to profile", user_path(current_user.first_name) %></span>
   <br>
   <% if @gardens.empty? %>
@@ -6,25 +8,25 @@
       <p class="text-secondary"> You still don't have any gardens</p>
   <% else %>
   
-  <div class='mt-5'>
+  <div class='mt-4'>
     <% @gardens.each do |garden| %>
       <div class="card-booking d-flex w-100">
         <div>
            <%= link_to garden_path(garden) do %>
-            <%= cl_image_tag garden.photos.first.key, height: 310, width: 280, crop: :fill %>
+            <%= cl_image_tag garden.photos.first.key, height: 280, width: 280, crop: :fill %>
           <% end %>
         </div>
 
         <div class="card-booking-infos d-flex flex-column w-100 ">
           <div style="padding-left: 8px;">
             <h3><%= link_to garden.title, garden_path(garden) %></h3>
-            <p>Address: <%= garden.location %> </p>
-            <p>Price: <%= garden.price %> €</p>
-            <p><%= garden.description[0..110] %> ...</p>
-            <br>
             <p><%= garden.avg_rating %> (<%= pluralize garden.reviews.size, "review" %>)</p>
+            <p>Price: <%= garden.price %> €</p>
             <br>
-            <div style="display: flex; justify-content: flex-start; padding-top: 16px;">
+            <p>Address: <%= garden.location %> </p>
+            <p><%= garden.description[0..900] %> ...</p>
+            <br>
+            <div style="display: flex; justify-content: flex-start; padding-top: 8px;">
               <% if policy(garden).edit? %>
                 <h6><%= link_to 'Edit', edit_garden_path(garden), class: "button mr-3" %></h6>
               <% end %>
@@ -41,4 +43,5 @@
     </div>
   </div>
   <% end %>
+  </div>
 </div>

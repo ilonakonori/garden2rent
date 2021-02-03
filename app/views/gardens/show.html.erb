@@ -1,6 +1,6 @@
 <div class="container">
-  <span id="linkback"><%= link_to "Back to garden search", gardens_path(policy_scope(Garden).order(created_at: :desc)) %></span>
-  <h1 style="padding: 8px 0;"><%= @garden.title %></h1>
+  <p id="linkback"><%= link_to "Back to garden search", gardens_path(policy_scope(Garden).order(created_at: :desc)) %></p>
+  <h2 style="padding: 8px 0;"><%= @garden.title %></h2>
   <div class="row" style="padding: 24px 0;">
     <% @garden.photos.each do |photo|%>
       <div class="col-4">
@@ -10,7 +10,7 @@
   </div>
 
 <div class="row box">
-    <div class="col-8 card-garden" style="padding-top: 10px; font-size: 18px; padding-right: 26px; text-align: left; line-height: 24px;">
+    <div class="col-8 card-garden" style="padding-top: 10px; font-size: 16px; padding-right: 26px; text-align: left; line-height: 24px;">
       <p>Owner: <%= link_to @garden.user.first_name, user_path(@garden.user.first_name), class: "link-yellow" %></p>
       <p>Location: <%= @garden.location %></p>
       <p><%= @garden.description %></p>
