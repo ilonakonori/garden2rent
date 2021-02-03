@@ -24,10 +24,9 @@
             <p><%= booking.garden.location %></p>
             <p><%= "#{booking.start_date.strftime("%-d. %B, %Y")} - #{booking.end_date.strftime("%-d. %B, %Y")}" %></p>
             <p><%= booking.total_price %> €</p>
-          </div>
-          <div>
             <% if booking.review.nil? %>
               <% if booking.end_date <= Date.today %>
+                <br>
                 <%= link_to 'Leave a review', new_booking_review_path(booking), class: "button" %>
               <% end %>
             <% else %>
@@ -37,11 +36,13 @@
                 <%= link_to 'Edit', edit_review_path(booking.review.id), class: "button", style: 'margin: 8px;' %>
                 <%= link_to "Delete", booking.review, class: "button", style: 'margin: 8px;', method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
             <% end %>
-          </div>
+            </div>
+          <div>
         </div>
       </div>
-    <% end %>
     </div>
+    <% end %>
+  </div>
   <% end %>
 </div>
 
